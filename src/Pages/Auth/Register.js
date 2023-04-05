@@ -1,10 +1,15 @@
 import React from 'react';
 
+import RegisterComponents from '../../Component/Auth/Register';
+
 const Register = () => {
     return (
-        <div>
-            signup page
-        </div>
+        <>
+        <RegisterComponents/>
+        </>
+        
+        
+        
     );
 };
 
