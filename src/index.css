@@ -3,6 +3,13 @@
 @tailwind utilities;
 
 
+/* :root,
+[data-theme] {
+  background-color: #f0f0f0;
+  color: #333;
+} */
+
+
 /* LOGIN &REGISTATION  START*/
 .card-body{
   background-color: #ffffff;
@@ -73,3 +80,4 @@
     font-weight: 600;
 
    }
+

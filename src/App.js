@@ -1,3 +1,20 @@
+
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MiddleNav from "./Component/navbar/MiddleNav";
+import TopNav from "./Component/navbar/TopNav";
+
+const App = () => {
+  return (
+    <BrowserRouter>
+      <header>
+        <TopNav></TopNav>
+        <MiddleNav></MiddleNav>
+      </header>
+    </BrowserRouter>
+  );
+};
+
 import {React} from 'react';
 import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 import Navbar from "./Component/navbar/Navbar";
@@ -35,5 +52,6 @@ const App = () => {
   }
 
   
+
 
 export default App;
