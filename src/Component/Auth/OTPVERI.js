@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import ReactCodeInput from "react-code-input";
 import { toast } from 'react-hot-toast';
 
-const OTPVERI = () => {
+const OTPverify = () => {
 
   let defaultInputStyle = {
     fontFamily: "monospace",
@@ -57,4 +57,4 @@ const OTPVERI = () => {
   )
 }
 
-export default OTPVERI
+export default OTPverify

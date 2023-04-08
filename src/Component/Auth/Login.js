@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { HiOutlineMail } from "react-icons/hi"
 import { AiFillEye, AiFillEyeInvisible, AiFillGoogleCircle, AiOutlineLock } from "react-icons/ai"
 import { BsGithub, BsFacebook } from "react-icons/bs"
-import { toast } from 'react-hot-toast'
+import {toast} from "react-toastify";
+
 
 const LoginComponents = () => {
      const [showPassword, setShowPassword] = useState(false);
