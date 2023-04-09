@@ -1,4 +1,5 @@
 module.exports = {
+  important: true,
   content: ["./src/**/*.{html,js}"],
   theme: {
     fontFamily: {
@@ -31,4 +32,4 @@ module.exports = {
   },
 
   plugins: [require("daisyui")],
-}
+};
