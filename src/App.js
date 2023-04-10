@@ -2,9 +2,8 @@ import React from "react";
 
 import HomePage from "./Pages/HomePage/HomePage";
 import { Route, Routes } from "react-router-dom";
-import TopNav from "./Component/navbar/TopNav";
 
-import MiddleNav from "./Component/navbar/MiddleNav";
+import TopNav from "./Component/navbar/TopNav";
 import ErrorPage from "./Pages/ErrorPage/ErrorPage";
 import Login from "./Pages/Auth/Login";
 import RegisterComponents from "./Component/Auth/Register";
@@ -19,7 +18,6 @@ const App = () => {
     <>
       <div className={""}>
         <TopNav></TopNav>
-        <MiddleNav></MiddleNav>
         <Menu></Menu>
       </div>
       <Routes>
