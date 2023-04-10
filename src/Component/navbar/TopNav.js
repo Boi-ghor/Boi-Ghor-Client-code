@@ -5,21 +5,19 @@ const TopNav = () => {
   return (
     <div className="topNav">
       <div className="container mx-auto px-2 py-3">
-        <div className="flex justify-between items-center border-b">
-          <div>
-            <h5 className="text-textColorLight text-sm font-light tracking-wider">
-              WOW Offers! 60-80% Off For All Story Books
-            </h5>
-          </div>
+        <div className="flex flex-col sm:flex-row justify-between items-center border-b">
+          <h5 className="text-textColorLight text-sm font-light tracking-wider text-center">
+            WOW Offers! 60-80% Off For All Story Books
+          </h5>
           <div className="flex items-center">
             <select className="select select-sm text-textColorLight focus:outline-none font-light">
-              <option disabled>Language</option>
+              <option>Language</option>
               <option>English</option>
               <option>Japanese</option>
               <option>Italian</option>
             </select>
             <select className="select select-sm text-textColorLight focus:outline-none font-light">
-              <option disabled>Currency</option>
+              <option>Currency</option>
               <option>USD</option>
               <option>EUR</option>
               <option>GBP</option>
