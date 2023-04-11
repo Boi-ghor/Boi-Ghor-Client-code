@@ -1,13 +1,18 @@
 import React from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+
+=======
 import { Navigation } from "swiper";
+
 import "swiper/css";
 import "swiper/css/navigation";
 import "../Assest/Hero.css"
 import { CiDeliveryTruck } from "react-icons/ci"
 import { BiMoneyWithdraw, BiPhoneCall } from "react-icons/bi"
 import { MdOutlinePayment } from "react-icons/md"
+
+import { Autoplay, Pagination, Navigation } from 'swiper'
 
 
 
@@ -16,7 +21,24 @@ const Hero = () => {
   return (
     <div className="HeroSec">
       
-        <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+
+        <Swiper 
+
+        className="mySwiper"
+        
+        spaceBetween={30}
+        centeredSlides={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Autoplay, Pagination, Navigation]}
+        
+        
 
 
 
@@ -27,14 +49,39 @@ const Hero = () => {
               <button
                 className="shop  
 
- bg-[#ff4157] 
- text-lg
- 
- hover:bg-[#232323] duration-700 
- 
- text-white
- 
- py-4 px-8"
+
+                    bg-[#ff4157] 
+                    text-lg
+                    
+                    hover:bg-[#232323] duration-700 
+                    
+                    text-white
+                    
+                    py-4 px-8"
+
+
+                type='submit' >
+                SHOP NOW
+              </button>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+
+            <img src="https://source.unsplash.com/700x300/?computer,login" alt="Slide 2" />
+            <div className="absolute bottom-[170px] right-[65px] shopbtn">
+              <button
+                className="shop  
+
+
+                        bg-[#ff4157] 
+                        text-lg
+                        
+                        hover:bg-[#232323] duration-700 
+                        
+                        text-white
+                        
+                        py-4 px-8"
+
 
                 type='submit' >
                 SHOP NOW
@@ -69,35 +116,16 @@ const Hero = () => {
               <button
                 className="shop  
 
- bg-[#ff4157] 
- text-lg
- 
- hover:bg-[#232323] duration-700 
- 
- text-white
- 
- py-4 px-8"
 
-                type='submit' >
-                SHOP NOW
-              </button>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
+                      bg-[#ff4157] 
+                      text-lg
+                      
+                      hover:bg-[#232323] duration-700 
+                      
+                      text-white
+                      
+                      py-4 px-8"
 
-            <img src="https://source.unsplash.com/700x300/?computer,login" alt="Slide 2" />
-            <div className="absolute bottom-[170px] right-[65px] shopbtn">
-              <button
-                className="shop  
-
- bg-[#ff4157] 
- text-lg
- 
- hover:bg-[#232323] duration-700 
- 
- text-white
- 
- py-4 px-8"
 
                 type='submit' >
                 SHOP NOW
@@ -112,14 +140,17 @@ const Hero = () => {
               <button
                 className="shop  
 
- bg-[#ff4157] 
- text-lg
- 
- hover:bg-[#232323] duration-700 
- 
- text-white
- 
- py-4 px-8"
+
+                      bg-[#ff4157] 
+                      text-lg
+                      
+                      hover:bg-[#232323] duration-700 
+                      
+                      text-white
+                      
+                      py-4 px-8"
+
+
 
                 type='submit' >
                 SHOP NOW
