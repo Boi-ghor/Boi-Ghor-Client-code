@@ -16,7 +16,7 @@ const Menu = () => {
 
   return (
     <>
-      <div className="bg-primary py-2 mt-2 mb-80">
+      <div className="bg-primary py-2 mt-2 ">
         <div className="container mx-auto px-2">
           <div className="flex justify-between items-center gap-2 sm:gap-3">
             <div>

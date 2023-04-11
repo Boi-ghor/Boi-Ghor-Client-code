@@ -3,7 +3,7 @@ import React from 'react';
 const AuthorCard = () => {
     return (
         <div>
-            author card
+            round card for author
         </div>
     );
 };
