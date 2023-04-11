@@ -1,13 +1,19 @@
 import React from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+
+=======
+import { Navigation } from "swiper";
+
 import "swiper/css";
 import "swiper/css/navigation";
 import "../Assest/Hero.css"
 import { CiDeliveryTruck } from "react-icons/ci"
 import { BiMoneyWithdraw, BiPhoneCall } from "react-icons/bi"
 import { MdOutlinePayment } from "react-icons/md"
+
 import { Autoplay, Pagination, Navigation } from 'swiper'
+
 
 
 
@@ -15,6 +21,7 @@ const Hero = () => {
   return (
     <div className="HeroSec">
       
+
         <Swiper 
 
         className="mySwiper"
@@ -32,7 +39,6 @@ const Hero = () => {
         modules={[Autoplay, Pagination, Navigation]}
         
         
-        >
 
 
 
@@ -43,6 +49,7 @@ const Hero = () => {
               <button
                 className="shop  
 
+
                     bg-[#ff4157] 
                     text-lg
                     
@@ -51,6 +58,7 @@ const Hero = () => {
                     text-white
                     
                     py-4 px-8"
+
 
                 type='submit' >
                 SHOP NOW
@@ -64,6 +72,7 @@ const Hero = () => {
               <button
                 className="shop  
 
+
                         bg-[#ff4157] 
                         text-lg
                         
@@ -72,6 +81,7 @@ const Hero = () => {
                         text-white
                         
                         py-4 px-8"
+
 
                 type='submit' >
                 SHOP NOW
@@ -106,6 +116,7 @@ const Hero = () => {
               <button
                 className="shop  
 
+
                       bg-[#ff4157] 
                       text-lg
                       
@@ -114,6 +125,7 @@ const Hero = () => {
                       text-white
                       
                       py-4 px-8"
+
 
                 type='submit' >
                 SHOP NOW
@@ -128,6 +140,7 @@ const Hero = () => {
               <button
                 className="shop  
 
+
                       bg-[#ff4157] 
                       text-lg
                       
@@ -136,6 +149,8 @@ const Hero = () => {
                       text-white
                       
                       py-4 px-8"
+
+
 
                 type='submit' >
                 SHOP NOW
@@ -147,9 +162,6 @@ const Hero = () => {
         </Swiper>
 
     
-
-
-
 
       <div className="secdesk mx-[100px] mb-[30px]">
 

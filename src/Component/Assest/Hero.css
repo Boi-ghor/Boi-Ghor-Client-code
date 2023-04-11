@@ -25,6 +25,7 @@
      background-color: #ff4157;
      color: #fff;
      padding: 25px;
+
      font-size: 19px!important;
      opacity: 0;
     
@@ -52,6 +53,7 @@
    .mySwiper :out-of-range .swiper-button-prev{
     transition: opacity 0.7s ease;
    }
+
 
    .swiper-button-next:hover,.swiper-button-prev:hover{
      background-color: #000000;
@@ -149,6 +151,7 @@
 
 
 
+
   .swiper-slide img {
     display: block;
     width: 100%;
@@ -157,10 +160,13 @@
   } 
 
 .secdesk{
+
     margin-top: 200px !important;
     margin-bottom: 20px !important;
     margin-left: 30px !important;
     margin-right: 30px !important;
+=======
+   
   }
 
 .offer{
@@ -169,6 +175,7 @@
 }
 
 .shopbtn{
+
 
   bottom: 10px !important;
   padding: 10px  !important;
@@ -179,7 +186,10 @@
   left: 10px !important;
   padding: 10px 20px !important;
   font-size: 15px !important;
+
+  bottom: 10px;
+  padding: 10px;
+  right: 10px
 }
 
 
-}
