@@ -1,6 +1,7 @@
 import React from 'react';
 import Hero from "../../Component/HomePage/Hero";
 import PopularBooks from '../../Component/HomePage/PopularBooks';
+import TopAuthors from '../../Component/HomePage/TopAuthors';
 
 const HomePage = () => {
     return (
@@ -8,6 +9,7 @@ const HomePage = () => {
            <Hero></Hero>
 
            <PopularBooks/>
+           <TopAuthors/>
         </div>
     );
 };
