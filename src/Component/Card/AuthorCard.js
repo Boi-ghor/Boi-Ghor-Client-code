@@ -2,7 +2,10 @@ import React from 'react';
 import author from "../../Assets/img/author.jpg"
 const AuthorCard = () => {
     return (
-        <div className="card w-96 bg-base-100 shadow-xl">
+ 
+        <div className="card w-96 bg-base-100 shadow-xl w-full max-w-[300px] my-4 bg-white border border-gray-200 rounded-lg
+        shadow-[hsl(0,100%,91%)] transform transition duration-500 hover:scale-110 
+         hover: drop-shadow-lg hover :shadow-[#FF4157]">
             <div className="card-body items-center text-center">
                 <div class="avatar">
                     <div class="w-24 rounded-full">
@@ -16,6 +19,7 @@ const AuthorCard = () => {
                 </div>
             </div>
         </div>
+
     );
 };
 
