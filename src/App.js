@@ -13,6 +13,7 @@ import ChangepassComponents from "./Component/Auth/Changepass";
 import Footer from "./Component/Common/Footer";
 import Menu from "./Component/navbar/Menu";
 import FaqPage from "./Pages/CommonPage/FaqPage";
+import Privacy from "./Pages/CommonPage/PrivacyPage";
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
         <Route path={"/verify-otp"} element={<OTPverify />}></Route>
         <Route path={"/change-pass"} element={<ChangepassComponents />}></Route>
         <Route path={"/faq"} element={<FaqPage/>}></Route>
+        <Route path={"/privacy-policy"} element={<Privacy/>}></Route>
         <Route path={"*"} element={<ErrorPage></ErrorPage>}></Route>
       </Routes>
       <Footer></Footer>
