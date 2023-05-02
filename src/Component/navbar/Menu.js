@@ -19,10 +19,10 @@ const Menu = () => {
       <div className="bg-primary py-2 mt-2 ">
         <div className="container mx-auto px-2">
           <div className="flex justify-between items-center gap-2 sm:gap-3">
-            <div>
+            <div className="lg:hidden">
               <HiOutlineBars3CenterLeft
                 size={40}
-                className="text-white cursor-pointer lg:hidden"
+                className="text-white cursor-pointer"
                 onClick={handleToggleSidebar}
               />
             </div>
@@ -61,7 +61,7 @@ const Menu = () => {
                       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
                     </svg>
                   </NavLink>
-                  <ul className="p-2 bg-base-200 text-neutral rounded-lg">
+                  <ul className="p-2 bg-base-200 text-neutral rounded-lg z-[99999]">
                     <li>
                       <NavLink to="/category/">Category 1</NavLink>
                     </li>
@@ -268,7 +268,7 @@ const Menu = () => {
       </div>
 
       <div
-        className={`sidebar fixed top-0 w-80 max-w-sm h-full bg-white shadow-2xl duration-300 lg:hidden ${
+        className={`sidebar fixed top-0 w-80 max-w-sm h-full bg-white shadow-2xl duration-300 lg:hidden z-[9999999] ${
           showSidebar ? "left-0" : "-left-80"
         }`}
       >
