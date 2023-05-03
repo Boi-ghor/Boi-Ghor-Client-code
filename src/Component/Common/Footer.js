@@ -10,10 +10,9 @@ const Footer = () => {
           Bookshop BD. <br />Selling you book since 2023
         </p>
         <p>Copyright © 2023 - All right reserved</p>
-      </div>
-      <div class="grid grid-flow-col gap-4">
-        <a class="link link-hover">About us</a>
-        <a class="link link-hover">Contact</a>
+        <div class="grid grid-flow-col gap-4">
+        <a class="link link-hover" href='/about'>About us</a>
+        <a class="link link-hover" href='/contact'>Contact</a>
         <a class="link link-hover" href='/privacy-policy'>Privacy Policy</a>
         <a class="link link-hover" href='/faq'>FAQs</a>
       </div>
@@ -24,6 +23,8 @@ const Footer = () => {
           <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-current"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg></a>
         </div>
       </div>
+      </div>
+    
     </footer>
   );
 };
