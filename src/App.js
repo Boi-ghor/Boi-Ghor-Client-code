@@ -12,6 +12,8 @@ import OTPverify from "./Component/Auth/OTPVERI";
 import ChangepassComponents from "./Component/Auth/Changepass";
 import Footer from "./Component/Common/Footer";
 import Menu from "./Component/navbar/Menu";
+import AboutPage from "./Pages/CommonPage/AboutPage";
+import ContactPage from "./Pages/CommonPage/ContactPage";
 import FaqPage from "./Pages/CommonPage/FaqPage";
 import Privacy from "./Pages/CommonPage/PrivacyPage";
 
@@ -29,6 +31,8 @@ const App = () => {
         <Route path={"/send-otp"} element={<SendotpComponents />}></Route>
         <Route path={"/verify-otp"} element={<OTPverify />}></Route>
         <Route path={"/change-pass"} element={<ChangepassComponents />}></Route>
+        <Route path={"/about"} element={<AboutPage/>}></Route>
+        <Route path={"/contact"} element={<ContactPage/>}></Route>
         <Route path={"/faq"} element={<FaqPage/>}></Route>
         <Route path={"/privacy-policy"} element={<Privacy/>}></Route>
         <Route path={"*"} element={<ErrorPage></ErrorPage>}></Route>

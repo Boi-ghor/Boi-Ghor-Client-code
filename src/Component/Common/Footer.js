@@ -11,17 +11,14 @@ const Footer = () => {
           Selling you book since 2023
         </p>
         <p>Copyright © 2023 - All right reserved</p>
+
+        <div class="grid grid-flow-col gap-4">
+        <a class="link link-hover" href='/about'>About us</a>
+        <a class="link link-hover" href='/contact'>Contact</a>
+        <a class="link link-hover" href='/privacy-policy'>Privacy Policy</a>
+        <a class="link link-hover" href='/faq'>FAQs</a
       </div>
-      <div className="grid grid-flow-col gap-4">
-        <a className="link link-hover">About us</a>
-        <a className="link link-hover">Contact</a>
-        <a className="link link-hover" href="/privacy-policy">
-          Privacy Policy
-        </a>
-        <a className="link link-hover" href="/faq">
-          FAQs
-        </a>
-      </div>
+    
       <div>
         <div className="grid grid-flow-col gap-4">
           <a>
@@ -59,6 +56,8 @@ const Footer = () => {
           </a>
         </div>
       </div>
+      </div>
+    
     </footer>
   );
 };
