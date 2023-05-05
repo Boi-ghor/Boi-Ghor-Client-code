@@ -40,50 +40,34 @@ const Menu = () => {
                 <li>
                   <NavLink
                     className="p-0 pr-8 hover:bg-transparent hover:text-base-300"
-                    to="/new"
+                    to="/books"
                   >
-                    Book
+                    Books
                   </NavLink>
                 </li>
-                <li tabIndex={0}>
-                  <NavLink
-                    className="p-0 pr-8 hover:bg-transparent hover:text-base-300"
-                    to="category"
-                  >
-                    Category
-                    <svg
-                      className="fill-current"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                    </svg>
-                  </NavLink>
-                  <ul className="p-2 bg-base-200 text-neutral rounded-lg z-[99999]">
-                    <li>
-                      <NavLink to="/category/">Category 1</NavLink>
-                    </li>
-                    <li>
-                      <NavLink to="/category/">Category 2</NavLink>
-                    </li>
-                  </ul>
-                </li>
+
                 <li>
                   <NavLink
                     className="p-0 pr-8 hover:bg-transparent hover:text-base-300"
-                    to="/blog"
+                    to="/authors"
                   >
-                    Blog
+                    Authors
                   </NavLink>
                 </li>
                 <li>
                   <NavLink
                     className="p-0 pr-8 hover:bg-transparent hover:text-base-300"
-                    to="/shop"
+                    to="/publishers"
                   >
-                    Shop
+                    Publishers
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                      className="p-0 pr-8 hover:bg-transparent hover:text-base-300"
+                      to="/blogs"
+                  >
+                   Blogs
                   </NavLink>
                 </li>
               </ul>
