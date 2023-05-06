@@ -20,9 +20,9 @@ const AuthorCard = ({ author }) => {
           <div className="font-medium">Books: ${books.length}</div>
           <Link
             to={`/author/${id}`}
-            className="btn btn-primary min-h-8 h-10 rounded capitalize"
+
           >
-            View Details
+
           </Link>
         </div>
       </div>
