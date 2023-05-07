@@ -1,17 +1,3 @@
-/* Styles for pagination bullets */
-.swiper-pagination-bullet {
-  width: 10px !important;
-  height: 10px !important;
-  border-radius: 50%;
-  background-color: #ff4157 !important;
-  margin: 0 5px;
-}
-
-/* Styles for active pagination bullet */
-.swiper-pagination-bullet-active {
-  background-color: #ff4157 !important;
-}
-
 /* LOGIN &REGISTATION  START*/
 .card-body {
   background-color: #ffffff;

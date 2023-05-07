@@ -18,6 +18,7 @@ import FaqPage from "./Pages/CommonPage/FaqPage";
 import Privacy from "./Pages/CommonPage/PrivacyPage";
 import AuthorsPage from "./Pages/NavbarPages/AuthorsPage";
 import PublishersPage from "./Pages/NavbarPages/PublishersPage";
+import BookPage from "./Pages/BookPage/BookPage";
 
 const App = () => {
   return (
@@ -28,21 +29,22 @@ const App = () => {
       </div>
       <Routes>
         <Route path={"/"} element={<HomePage></HomePage>}></Route>
+        <Route path={"/books"} element={<BookPage />}></Route>
         <Route path={"/login"} element={<Login></Login>}></Route>
         <Route path={"/register"} element={<RegisterComponents />}></Route>
         <Route path={"/send-otp"} element={<SendotpComponents />}></Route>
         <Route path={"/verify-otp"} element={<OTPverify />}></Route>
         <Route path={"/change-pass"} element={<ChangepassComponents />}></Route>
 
-          {/*Navbar related pages routing*/}
-          <Route path={"/authors"} element={<AuthorsPage/>}></Route>
-          <Route path={"/publishers"} element={<PublishersPage/>}></Route>
+        {/*Navbar related pages routing*/}
+        <Route path={"/authors"} element={<AuthorsPage />}></Route>
+        <Route path={"/publishers"} element={<PublishersPage />}></Route>
 
-          {/*Footers routing*/}
-        <Route path={"/about"} element={<AboutPage/>}></Route>
-        <Route path={"/contact"} element={<ContactPage/>}></Route>
-        <Route path={"/faq"} element={<FaqPage/>}></Route>
-        <Route path={"/privacy-policy"} element={<Privacy/>}></Route>
+        {/*Footers routing*/}
+        <Route path={"/about"} element={<AboutPage />}></Route>
+        <Route path={"/contact"} element={<ContactPage />}></Route>
+        <Route path={"/faq"} element={<FaqPage />}></Route>
+        <Route path={"/privacy-policy"} element={<Privacy />}></Route>
         <Route path={"*"} element={<ErrorPage></ErrorPage>}></Route>
       </Routes>
       <Footer></Footer>
