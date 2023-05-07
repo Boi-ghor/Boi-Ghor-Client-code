@@ -16,6 +16,8 @@ import AboutPage from "./Pages/CommonPage/AboutPage";
 import ContactPage from "./Pages/CommonPage/ContactPage";
 import FaqPage from "./Pages/CommonPage/FaqPage";
 import Privacy from "./Pages/CommonPage/PrivacyPage";
+import AuthorsPage from "./Pages/NavbarPages/AuthorsPage";
+import PublishersPage from "./Pages/NavbarPages/PublishersPage";
 
 const App = () => {
   return (
@@ -31,6 +33,12 @@ const App = () => {
         <Route path={"/send-otp"} element={<SendotpComponents />}></Route>
         <Route path={"/verify-otp"} element={<OTPverify />}></Route>
         <Route path={"/change-pass"} element={<ChangepassComponents />}></Route>
+
+          {/*Navbar related pages routing*/}
+          <Route path={"/authors"} element={<AuthorsPage/>}></Route>
+          <Route path={"/publishers"} element={<PublishersPage/>}></Route>
+
+          {/*Footers routing*/}
         <Route path={"/about"} element={<AboutPage/>}></Route>
         <Route path={"/contact"} element={<ContactPage/>}></Route>
         <Route path={"/faq"} element={<FaqPage/>}></Route>
