@@ -2,21 +2,21 @@ import React from 'react';
 import {Link} from "react-router-dom";
 
 const Publishers = ({ publishers }) => {
-    const { name, id, publisherAvatar} = publishers;
+    const { publisherName, slug, photoURL} = publishers;
 
 
     return (
         <Link
-            to={`/publisher/${id}`}
+            to={`/publisher/${slug}`}
 
         >
 
 
             <div className="card w-64 h-64">
                 <figure className="px-10 pt-10">
-                    <img src={publisherAvatar} alt={name} className="rounded-xl"/>
+                    <img src={photoURL} alt={publisherName} className="rounded-xl"/>
                 </figure>
-                        <button className="btn btn-outline btn-primary mx-auto mt-4">{name}</button>
+                        <button className="btn btn-outline btn-primary mx-auto mt-4">{publisherName}</button>
             </div>
         </Link>
     )
