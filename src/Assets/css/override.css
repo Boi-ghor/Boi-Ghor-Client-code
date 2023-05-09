@@ -1,3 +1,32 @@
 .collapse.collapse {
   visibility: visible !important;
 }
+
+/* Styles for pagination bullets */
+.swiper-pagination-bullet {
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 50%;
+  background-color: #ff4157 !important;
+  margin: 0 5px;
+}
+
+/* Styles for active pagination bullet */
+.swiper-pagination-bullet-active {
+  background-color: #ff4157 !important;
+}
+
+/* Range Slider */
+.rc-slider-track {
+  background-color: #ff4157 !important;
+}
+.rc-slider-handle {
+  border-color: #ff41578a !important;
+}
+.rc-slider-handle:hover {
+  border-color: #ff4157 !important;
+}
+.rc-slider-handle:active {
+  border-color: #ff4157 !important;
+  box-shadow: 0 0 5px #ff4157 !important;
+}
