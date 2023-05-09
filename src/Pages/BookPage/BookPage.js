@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { ImHome } from "react-icons/im";
 import { AiFillRead } from "react-icons/ai";
+import { GrClose } from "react-icons/gr";
+import { FaFilter } from "react-icons/fa";
+import { IoGrid } from "react-icons/io5";
+import { FaList } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
@@ -143,11 +147,21 @@ const books = [
 
 const BookPage = () => {
   const [price, setPrice] = useState(500);
+  const [showFilterArea, setShowFilterArea] = useState(false);
+  const [isListView, setIsListView] = useState(false);
+
+  const handleListView = () => {
+    setIsListView(!isListView);
+  };
+
+  const handleSortBooks = (event) => {
+    console.log(event.target.value);
+  };
 
   return (
     <>
       <div
-        className="h-80 relative before:absolute before:content-[''] before:w-full before:h-full before:bg-black before:bg-opacity-60  flex items-center"
+        className="h-80 relative before:absolute before:content-[''] before:w-full before:h-full before:bg-black before:bg-opacity-60  hidden items-center"
         style={{
           backgroundImage:
             "url(https://www.shutterstock.com/image-vector/stacks-books-reading-pile-textbooks-260nw-1988002235.jpg)",
@@ -176,19 +190,132 @@ const BookPage = () => {
         </div>
       </div>
 
-      <div className="py-24">
+      <div className="py-20">
         <div className="container mx-auto px-3">
           <div className="grid grid-cols-12 gap-10">
-            <div className="col-span-3 flex flex-col gap-10">
+            <div
+              className={`col-span-3 flex flex-col gap-10 bg-white fixed lg:static top-0 ${
+                showFilterArea ? "left-0" : "-left-72"
+              } duration-300 w-72 max-w-full lg:w-full h-screen lg:h-full overflow-y-auto px-4 py-6 lg:px-0 lg:py-0 shadow-2xl lg:shadow-none`}
+            >
               <div>
-                <h3 className="font-semibold text-2xl mb-2">Category</h3>
+                <div
+                  className="cursor-pointer hover:opacity-70 duration-200 flex justify-end mb-1 lg:hidden"
+                  onClick={() => setShowFilterArea(!showFilterArea)}
+                >
+                  <GrClose size={22} />
+                </div>
+                <h3 className="font-semibold text-xl mb-2">Sort By</h3>
+                <div className="sortOptions">
+                  <div className="form-control">
+                    <label className="label justify-start gap-3 cursor-pointer">
+                      <input
+                        onChange={handleSortBooks}
+                        type="radio"
+                        name="sortBooksRadio"
+                        className="radio radio-sm radio-primary"
+                        value="dateNewToOld"
+                        defaultChecked
+                      />
+                      <span>Date, new to old</span>
+                    </label>
+                  </div>
+                  <div className="form-control">
+                    <label className="label justify-start gap-3 cursor-pointer">
+                      <input
+                        onChange={handleSortBooks}
+                        type="radio"
+                        name="sortBooksRadio"
+                        className="radio radio-sm radio-primary"
+                        value="dateOldToNew"
+                      />
+                      <span>Date, old to new</span>
+                    </label>
+                  </div>
+                  <div className="form-control">
+                    <label className="label justify-start gap-3 cursor-pointer">
+                      <input
+                        onChange={handleSortBooks}
+                        type="radio"
+                        name="sortBooksRadio"
+                        className="radio radio-sm radio-primary"
+                        value="featured"
+                      />
+                      <span>Featured</span>
+                    </label>
+                  </div>
+                  <div className="form-control">
+                    <label className="label justify-start gap-3 cursor-pointer">
+                      <input
+                        onChange={handleSortBooks}
+                        type="radio"
+                        name="sortBooksRadio"
+                        className="radio radio-sm radio-primary"
+                        value="bestSelling"
+                      />
+                      <span>Best selling</span>
+                    </label>
+                  </div>
+                  <div className="form-control">
+                    <label className="label justify-start gap-3 cursor-pointer">
+                      <input
+                        onChange={handleSortBooks}
+                        type="radio"
+                        name="sortBooksRadio"
+                        className="radio radio-sm radio-primary"
+                        value="priceLowToHight"
+                      />
+                      <span>Price, low to high</span>
+                    </label>
+                  </div>
+                  <div className="form-control">
+                    <label className="label justify-start gap-3 cursor-pointer">
+                      <input
+                        onChange={handleSortBooks}
+                        type="radio"
+                        name="sortBooksRadio"
+                        className="radio radio-sm radio-primary"
+                        value="priceHighToLow"
+                      />
+                      <span>Price, high to low</span>
+                    </label>
+                  </div>
+                  <div className="form-control">
+                    <label className="label justify-start gap-3 cursor-pointer">
+                      <input
+                        onChange={handleSortBooks}
+                        type="radio"
+                        name="sortBooksRadio"
+                        className="radio radio-sm radio-primary"
+                        value="alphabetically_A_Z"
+                      />
+                      <span>Alphabetically, A-Z</span>
+                    </label>
+                  </div>
+                  <div className="form-control">
+                    <label className="label justify-start gap-3 cursor-pointer">
+                      <input
+                        onChange={handleSortBooks}
+                        type="radio"
+                        name="sortBooksRadio"
+                        className="radio radio-sm radio-primary"
+                        value="alphabetically_Z_A"
+                      />
+                      <span>Alphabetically, Z-A</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="font-semibold text-xl mb-2">Category</h3>
                 <div className="form-control">
                   <label className="label justify-start gap-3 cursor-pointer">
                     <input
                       type="checkbox"
                       className="checkbox checkbox-sm checkbox-primary rounded-md"
                     />
-                    <span className="font-semibold">Category Name</span>
+                    <span>Category Name</span>
                   </label>
                 </div>
                 <div className="form-control">
@@ -197,7 +324,7 @@ const BookPage = () => {
                       type="checkbox"
                       className="checkbox checkbox-sm checkbox-primary rounded-md"
                     />
-                    <span className="font-semibold">Category Name</span>
+                    <span>Category Name</span>
                   </label>
                 </div>
                 <div className="form-control">
@@ -206,7 +333,7 @@ const BookPage = () => {
                       type="checkbox"
                       className="checkbox checkbox-sm checkbox-primary rounded-md"
                     />
-                    <span className="font-semibold">Category Name</span>
+                    <span>Category Name</span>
                   </label>
                 </div>
                 <div className="form-control">
@@ -215,7 +342,7 @@ const BookPage = () => {
                       type="checkbox"
                       className="checkbox checkbox-sm checkbox-primary rounded-md"
                     />
-                    <span className="font-semibold">Category Name</span>
+                    <span>Category Name</span>
                   </label>
                 </div>
                 <div className="form-control">
@@ -224,7 +351,7 @@ const BookPage = () => {
                       type="checkbox"
                       className="checkbox checkbox-sm checkbox-primary rounded-md"
                     />
-                    <span className="font-semibold">Category Name</span>
+                    <span>Category Name</span>
                   </label>
                 </div>
                 <div className="form-control">
@@ -233,7 +360,7 @@ const BookPage = () => {
                       type="checkbox"
                       className="checkbox checkbox-sm checkbox-primary rounded-md"
                     />
-                    <span className="font-semibold">Category Name</span>
+                    <span>Category Name</span>
                   </label>
                 </div>
                 <div className="form-control">
@@ -242,7 +369,7 @@ const BookPage = () => {
                       type="checkbox"
                       className="checkbox checkbox-sm checkbox-primary rounded-md"
                     />
-                    <span className="font-semibold">Category Name</span>
+                    <span>Category Name</span>
                   </label>
                 </div>
                 <div className="form-control">
@@ -251,12 +378,12 @@ const BookPage = () => {
                       type="checkbox"
                       className="checkbox checkbox-sm checkbox-primary rounded-md"
                     />
-                    <span className="font-semibold">Category Name</span>
+                    <span>Category Name</span>
                   </label>
                 </div>
               </div>
               <div>
-                <h3 className="font-semibold text-2xl mb-2">Price</h3>
+                <h3 className="font-semibold text-xl mb-2">Price</h3>
                 <div>
                   <div>
                     <Slider
@@ -273,22 +400,44 @@ const BookPage = () => {
                 </div>
               </div>
               <div>
-                <button className="btn btn-block btn-primary">Reset All</button>
+                <button
+                  onClick={() => {
+                    window.location.reload();
+                  }}
+                  className="btn btn-block btn-primary"
+                >
+                  Reset All
+                </button>
               </div>
             </div>
 
-            <div className="col-span-9">
+            <div className="col-span-12 lg:col-span-9">
               <div className="border bg-white p-3 rounded-md shadow-md flex justify-between items-center mb-16">
-                <p>12 Products</p>
-                <div>
-                  <select className="select w-full max-w-xs select-sm focus:outline-none">
-                    <option>Sort By</option>
-                    <option>Han Solo</option>
-                    <option>Greedo</option>
-                  </select>
+                <p className="text-lg flex items-center gap-2">
+                  12 Products
+                  <span
+                    className="cursor-pointer hover:opacity-70 duration-200 lg:hidden"
+                    onClick={() => setShowFilterArea(!showFilterArea)}
+                  >
+                    <FaFilter />
+                  </span>
+                </p>
+                <div className="flex gap-3">
+                  <span
+                    onClick={handleListView}
+                    className={`${!isListView && "bg-gray-200"} p-2 rounded cursor-pointer`}
+                  >
+                    <IoGrid size={20} />
+                  </span>
+                  <span
+                    onClick={handleListView}
+                    className={`${isListView && "bg-gray-200"} p-2 rounded cursor-pointer`}
+                  >
+                    <FaList size={20} />
+                  </span>
                 </div>
               </div>
-              <div className="grid grid-cols-4 gap-x-6 gap-y-14">
+              <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-14">
                 {books.map((book) => {
                   return <BookCard book={book} key={book?.id} />;
                 })}
