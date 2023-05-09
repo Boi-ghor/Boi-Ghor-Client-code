@@ -2,12 +2,12 @@ import React from 'react';
 import {Link} from "react-router-dom";
 
 const Publishers = ({ publishers }) => {
-    const { publisherName, slug, photoURL} = publishers;
+    const { publisherName, photoURL} = publishers;
 
 
     return (
         <Link
-            to={`/publisher/${slug}`}
+            to={`/books-by-publisher/${publisherName}`}
 
         >
 
