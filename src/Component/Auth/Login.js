@@ -41,14 +41,17 @@ const LoginComponents = () => {
      return (
          <>
 
-              <div className="container mx-auto">
+
+               <div className="container mx-auto mobile">
 
 
-                   <div className="flex mobile justify-center">
-                        <div className="flex flex-col justify-center">
-                             <div className="flex flex-col md:flex-row max-w-7xl justify-center items-center ">
-                                  <div className="overflow-hidden w-full m-4 flex justify-center rounded-lg shadow-xl">
-                                       <div className="flex flex-col md:flex-row items-center shadow-md h-full  ">
+                    <div className="flex  justify-center">
+                         <div className="flex flex-col justify-center">
+                              <div className="flex flex-col md:flex-row max-w-7xl justify-center items-center ">
+                                   <div className="overflow-hidden w-full m-4 flex justify-center rounded-lg shadow-xl">
+                                        <div className="flex flex-col md:flex-row items-center shadow-md h-full  ">
+
+           
 
 
 
