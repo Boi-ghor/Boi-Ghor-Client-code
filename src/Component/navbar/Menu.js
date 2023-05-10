@@ -16,13 +16,13 @@ const Menu = () => {
 
   return (
     <>
-      <div className="bg-primary py-2 mt-2 mb-80">
+      <div className="bg-primary py-2 mt-2 ">
         <div className="container mx-auto px-2">
           <div className="flex justify-between items-center gap-2 sm:gap-3">
-            <div>
+            <div className="lg:hidden">
               <HiOutlineBars3CenterLeft
                 size={40}
-                className="text-white cursor-pointer lg:hidden"
+                className="text-white cursor-pointer"
                 onClick={handleToggleSidebar}
               />
             </div>
@@ -40,50 +40,34 @@ const Menu = () => {
                 <li>
                   <NavLink
                     className="p-0 pr-8 hover:bg-transparent hover:text-base-300"
-                    to="/new"
+                    to="/books"
                   >
-                    Book
+                    Books
                   </NavLink>
                 </li>
-                <li tabIndex={0}>
-                  <NavLink
-                    className="p-0 pr-8 hover:bg-transparent hover:text-base-300"
-                    to="category"
-                  >
-                    Category
-                    <svg
-                      className="fill-current"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                    </svg>
-                  </NavLink>
-                  <ul className="p-2 bg-base-200 text-neutral rounded-lg">
-                    <li>
-                      <NavLink to="/category/">Category 1</NavLink>
-                    </li>
-                    <li>
-                      <NavLink to="/category/">Category 2</NavLink>
-                    </li>
-                  </ul>
-                </li>
+
                 <li>
                   <NavLink
                     className="p-0 pr-8 hover:bg-transparent hover:text-base-300"
-                    to="/blog"
+                    to="/authors"
                   >
-                    Blog
+                    Authors
                   </NavLink>
                 </li>
                 <li>
                   <NavLink
                     className="p-0 pr-8 hover:bg-transparent hover:text-base-300"
-                    to="/shop"
+                    to="/publishers"
                   >
-                    Shop
+                    Publishers
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                      className="p-0 pr-8 hover:bg-transparent hover:text-base-300"
+                      to="/blogs"
+                  >
+                   Blogs
                   </NavLink>
                 </li>
               </ul>
@@ -268,7 +252,7 @@ const Menu = () => {
       </div>
 
       <div
-        className={`sidebar fixed top-0 w-80 max-w-sm h-full bg-white shadow-2xl duration-300 lg:hidden ${
+        className={`sidebar fixed top-0 w-80 max-w-sm h-full bg-white shadow-2xl duration-300 lg:hidden z-[9999999] ${
           showSidebar ? "left-0" : "-left-80"
         }`}
       >
