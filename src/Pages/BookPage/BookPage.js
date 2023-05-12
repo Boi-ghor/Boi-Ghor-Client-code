@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ImHome } from "react-icons/im";
 import { AiFillRead } from "react-icons/ai";
 import { GrClose } from "react-icons/gr";
@@ -9,153 +9,74 @@ import { Link } from "react-router-dom";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import BookCard from "../../Component/Card/BookCard";
-
-const books = [
-  {
-    id: 1,
-    title: "The Catcher in the Rye",
-    author: "J.D. Salinger",
-    publicationYear: 1951,
-    genres: ["Fiction", "Coming-of-age"],
-    rating: 4.0,
-    coverImage:
-      "https://ds.rokomari.store/rokomari110/ProductNew20190903/130X186/HSC_Parallel_Text_Zoology_Chapter_03-Udvash_Academic_And_Admission_Care-4992e-294355.jpg",
-    price: 12.99,
-  },
-  {
-    id: 2,
-    title: "The Hobbit",
-    author: "J.R.R. Tolkien",
-    publicationYear: 1937,
-    genres: ["Fantasy", "Adventure"],
-    rating: 4.6,
-    coverImage:
-      "https://ds.rokomari.store/rokomari110/ProductNew20190903/130X186/7534d3a89_138731.jpg",
-    price: 9.99,
-  },
-  {
-    id: 3,
-    title: "The Lord of the Rings",
-    author: "J.R.R. Tolkien",
-    publicationYear: 1954,
-    genres: ["Fantasy", "Adventure"],
-    rating: 4.5,
-    coverImage:
-      "https://ds.rokomari.store/rokomari110/ProductNew20190903/130X186/HSC_Parallel_Text_Botany_Chapter_01-Udvash_Academic_And_Admission_Care-bfbb5-294357.jpg",
-    price: 15.99,
-  },
-  {
-    id: 4,
-    title: "The Hitchhiker's Guide to the Galaxy",
-    author: "Douglas Adams",
-    publicationYear: 1979,
-    genres: ["Science Fiction", "Comedy"],
-    rating: 4.2,
-    coverImage:
-      "https://ds.rokomari.store/rokomari110/ProductNew20190903/130X186/HSC_Science_Foundation_Book_Physics-Udvash_Academic_And_Admission_Care-c74c3-270249.jpg",
-    price: 10.99,
-  },
-  {
-    id: 5,
-    title: "To Kill a Mockingbird",
-    author: "Harper Lee",
-    publicationYear: 1960,
-    genres: ["Fiction", "Classic"],
-    rating: 4.3,
-    coverImage:
-      "https://ds.rokomari.store/rokomari110/ProductNew20190903/130X186/HSC_Parallel_Text_Higher_Math_1st_Paper_-Udvash_Academic_And_Admission_Care-f5575-300382.jpg",
-    price: 13.99,
-  },
-  {
-    id: 6,
-    title: "1984",
-    author: "George Orwell",
-    publicationYear: 1949,
-    genres: ["Fiction", "Dystopian"],
-    rating: 4.5,
-    coverImage:
-      "https://ds.rokomari.store/rokomari110/ProductNew20190903/130X186/4f609a739b54_108526.gif",
-    price: 11.99,
-  },
-  {
-    id: 7,
-    title: "The Great Gatsby",
-    author: "F. Scott Fitzgerald",
-    publicationYear: 1925,
-    genres: ["Fiction", "Classic"],
-    rating: 4.1,
-    coverImage:
-      "https://ds.rokomari.store/rokomari110/ProductNew20190903/130X186/f9005b267_131401.jpg",
-    price: 12.99,
-  },
-  {
-    id: 8,
-    title: "Pride and Prejudice",
-    author: "Jane Austen",
-    publicationYear: 1813,
-    genres: ["Fiction", "Romance"],
-    rating: 4.2,
-    coverImage:
-      "https://ds.rokomari.store/rokomari110/ProductNew20190903/130X186/fece9edf1564_92229.gif",
-    price: 13.99,
-  },
-  {
-    id: 9,
-    title: "One Hundred Years of Solitude",
-    author: "Gabriel Garcia Marquez",
-    publicationYear: 1967,
-    genres: ["Fiction", "Magical Realism"],
-    rating: 4.4,
-    coverImage:
-      "https://ds.rokomari.store/rokomari110/ProductNew20190903/130X186/ff58439764f4_51894.jpg",
-    price: 8.99,
-  },
-  {
-    id: 10,
-    title: "The Da Vinci Code",
-    author: "Dan Brown",
-    publicationYear: 2003,
-    genres: ["Fiction", "Thriller"],
-    rating: 3.8,
-    coverImage:
-      "https://ds.rokomari.store/rokomari110/ProductNew20190903/130X186/99bd74257_176400.jpg",
-    price: 13.99,
-  },
-  {
-    id: 11,
-    title: "The Catcher in the Rye",
-    author: "J.D. Salinger",
-    publicationYear: 1951,
-    genres: ["Fiction", "Coming-of-age"],
-    rating: 4.0,
-    coverImage:
-      "https://ds.rokomari.store/rokomari110/ProductNew20190903/130X186/HSC_Parallel_Text_Zoology_Chapter_03-Udvash_Academic_And_Admission_Care-4992e-294355.jpg",
-    price: 12.99,
-  },
-  {
-    id: 12,
-    title: "The Hobbit",
-    author: "J.R.R. Tolkien",
-    publicationYear: 1937,
-    genres: ["Fantasy", "Adventure"],
-    rating: 4.6,
-    coverImage:
-      "https://ds.rokomari.store/rokomari110/ProductNew20190903/130X186/7534d3a89_138731.jpg",
-    price: 9.99,
-  },
-];
+import { LoadAll } from "../../ApiRequest/ApiRequest";
+import { LoaderContext } from "../../context/loader";
 
 const BookPage = () => {
+  const [books, setBooks] = useState([]);
   const [price, setPrice] = useState(500);
   const [showFilterArea, setShowFilterArea] = useState(false);
   const [isListView, setIsListView] = useState(false);
+
+  // Context
+  const { isLoading } = useContext(LoaderContext);
+
+  useEffect(() => {
+    loadBooks();
+  }, []);
+
+  const loadBooks = () => {
+    isLoading(true);
+    LoadAll("/books")
+      .then((data) => {
+        setBooks(data);
+        isLoading(false);
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   const handleListView = () => {
     setIsListView(!isListView);
   };
 
   const handleSortBooks = (event) => {
-    console.log(event.target.value);
+    const selected = event.target.value;
+
+    if (selected === "dateNewToOld") {
+      const sortedBooks = [...books].sort(
+        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+      );
+      setBooks(sortedBooks);
+      console.log(sortedBooks);
+    } else if (selected === "dateOldToNew") {
+      const sortedBooks = [...books].sort(
+        (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+      );
+      setBooks(sortedBooks);
+      console.log(sortedBooks);
+    } else if (selected === "featured") {
+      const sortedBooks = [...books].sort((a, b) => b.isFeatured - a.isFeatured);
+      setBooks(sortedBooks);
+      console.log(sortedBooks.map((item) => item.isFeatured));
+    } else if (selected === "bestSelling") {
+      const sortedBooks = [...books].sort((a, b) => b.sold - a.sold);
+      setBooks(sortedBooks);
+    } else if (selected === "priceLowToHight") {
+      const sortedBooks = [...books].sort((a, b) => a.price - b.price);
+      setBooks(sortedBooks);
+    } else if (selected === "priceHighToLow") {
+      const sortedBooks = [...books].sort((a, b) => b.price - a.price);
+      setBooks(sortedBooks);
+    } else if (selected === "alphabetically_A_Z") {
+      const sortedBooks = [...books].sort((a, b) => a.name.localeCompare(b.name));
+      setBooks(sortedBooks);
+    } else if (selected === "alphabetically_Z_A") {
+      const sortedBooks = [...books].sort((a, b) => b.name.localeCompare(a.name));
+      setBooks(sortedBooks);
+    }
   };
 
   return (
@@ -439,7 +360,7 @@ const BookPage = () => {
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-14">
                 {books.map((book) => {
-                  return <BookCard book={book} key={book?.id} />;
+                  return <BookCard key={book?._id} book={book} />;
                 })}
               </div>
             </div>

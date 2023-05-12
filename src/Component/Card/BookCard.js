@@ -8,16 +8,16 @@ const BookCard = ({ book }) => {
       <div className="flex flex-col h-full">
         <div className="flex justify-center">
           <img
-            src={book?.coverImage}
-            alt={book?.title}
+            src={book?.photoURL}
+            alt={book?.bookName}
             className="bookCoverImg w-44 max-w-full"
           />
         </div>
         <div className="my-4 text-center">
-          <h4 className="font-semibold mb-2">{book?.title}</h4>
+          <h4 className="font-semibold mb-2">{book?.bookName}</h4>
           <h5 className="text-sm">
             <span className="text-gray-500 font-semibold">by </span>
-            {book?.author}
+            {book?.author[0].authorName}
           </h5>
         </div>
         <div className="mt-auto px-3 py-2 bg-red-100 w-full rounded border-red-200 shadow">
