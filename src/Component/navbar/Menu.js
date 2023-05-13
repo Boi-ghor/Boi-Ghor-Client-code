@@ -1,14 +1,25 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import {Link, NavLink, useNavigate} from "react-router-dom";
 
 import { HiOutlineBars3CenterLeft } from "react-icons/hi2";
 import { RxCross1 } from "react-icons/rx";
 import { BsEnvelope, BsCheck2Square } from "react-icons/bs";
 import { MdOutlineDangerous } from "react-icons/md";
 import { RiTakeawayLine } from "react-icons/ri";
+import {useAuth} from "../../context/useAuth";
 
 const Menu = () => {
   const [showSidebar, setShowSidebar] = useState(false);
+  const [auth, setAuth] = useAuth();
+
+
+  const navigate = useNavigate();
+
+  const logout = () => {
+    setAuth({ ...auth, user: null, token: "" });
+    localStorage.removeItem("auth");
+    navigate("/signin");
+  };
 
   const handleToggleSidebar = () => {
     setShowSidebar(!showSidebar);
@@ -99,6 +110,16 @@ const Menu = () => {
                 </div>
               </div>
             </div>
+            {!auth?.user ? (
+                <ul className="menu menu-horizontal text-white text-lg">
+                  <NavLink
+                      className="p-0 pr-8 hover:bg-transparent hover:text-base-300"
+                      to="/login"
+                  >
+                    Login
+                  </NavLink>
+                </ul>
+            ) : (
             <div className="flex items-center">
               {/* <select className="select select-sm focus:outline-none font-light bg-transparent text-white">
                 <option>Language</option>
@@ -242,11 +263,12 @@ const Menu = () => {
                     <NavLink to="/settings">Settings</NavLink>
                   </li>
                   <li>
-                    <NavLink to="/logout">Logout</NavLink>
+                    <NavLink onClick={logout} to="/logout">Logout</NavLink>
                   </li>
                 </ul>
               </div>
             </div>
+            )}
           </div>
         </div>
       </div>
