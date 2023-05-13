@@ -19,10 +19,12 @@ import Privacy from "./Pages/CommonPage/PrivacyPage";
 import AuthorsPage from "./Pages/NavbarPages/AuthorsPage";
 import PublishersPage from "./Pages/NavbarPages/PublishersPage";
 import BookPage from "./Pages/BookPage/BookPage";
+import FullScreenLoader from "./Component/Common/FullScreenLoader";
 
 const App = () => {
   return (
     <>
+      <FullScreenLoader />
       <div className={""}>
         <TopNav></TopNav>
         <Menu></Menu>
