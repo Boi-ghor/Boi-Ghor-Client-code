@@ -4,6 +4,9 @@ import './login.module.css'
 import { AiFillEye, AiFillEyeInvisible, AiFillGoogleCircle, AiOutlineLock } from "react-icons/ai"
 import { BsGithub, BsFacebook } from "react-icons/bs"
 import {toast} from "react-toastify";
+import {useLocation, useNavigate} from "react-router-dom";
+import {useAuth} from "../../context/useAuth";
+import axios from "axios";
 
 
 const LoginComponents = () => {
@@ -11,23 +14,38 @@ const LoginComponents = () => {
 
      const [email, setEmail] = useState('')
      const [password, setPassword] = useState('')
+     // hook
+     const [auth, setAuth] = useAuth();
+     const navigate = useNavigate();
+     const location = useLocation();
+
 
      const handleSubmit = async (e) => {
           e.preventDefault()
+          try {
+               const {data} = await axios.post(`/signin`, {
+                    email,
+                    password,
+               });
+               console.log(data);
 
+               if (data?.error) {
+                    toast.error(data.error)
 
-          if (!email) {
-               toast.error("email is required")
+               }else {
+                    localStorage.setItem("auth", JSON.stringify(data));
+                    setAuth({...auth, token: data.token, user: data.user});
+                    toast.success("login suces")
+                    navigate(
+                        location.state ||
+                        `/`
+                    );
+               }
           }
-
-          else if (!password) {
-               toast.error("password is required")
+          catch (err) {
+               console.log(err);
+               toast.error("Login failed. Try again.");
           }
-          else {
-
-               toast.success("login suces")
-          }
-
 
 
      }
