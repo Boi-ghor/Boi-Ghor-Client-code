@@ -4,23 +4,34 @@ import {Link} from "react-router-dom";
 
 
 const Authors = ({ author }) => {
-    const { authorName, _id, photoURL} = author;
+    const { authorName, _id, photoURL,sellCount} = author;
 
 
     return (
-        <Link
-            to={`/bookByAuthor/${_id}`}
-
-        >
-            <div className="avatar-container">
-                <div className="avatar">
-                    <div className="w-48 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                        <img src={photoURL} alt={authorName} className="w-full h-64 object-cover" />
-                    </div>
-                </div>
-                <button className="btn btn-outline btn-primary mx-auto mt-4">{authorName}</button>
+    <div className="bookCard w-full h-full">
+        <div className="flex flex-col h-full">
+            <div className="flex justify-center">
+                <img
+                    src={photoURL}
+                    alt={authorName}
+                    className="authorImg w-44 max-w-full h-44 rounded-full"
+                />
             </div>
-        </Link>
+
+            <h4 className="font-semibold my-8">{authorName}</h4>
+
+            <div className="mt-auto px-3 py-2 bg-red-100 w-full rounded border-red-200 shadow flex items-center justify-between">
+                <div className="font-medium">Books sold: {sellCount}&nbsp;</div>
+
+                <Link
+                    to={`/authors/${_id}`}
+                    className="btn btn-primary min-h-8 h-10 rounded capitalize"
+                >
+                    View Details
+                </Link>
+            </div>
+        </div>
+    </div>
     )
 };
 

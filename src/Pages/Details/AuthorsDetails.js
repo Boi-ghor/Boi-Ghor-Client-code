@@ -1,40 +1,54 @@
-import React, {useEffect, useState} from 'react';
-import {LoadAll, LoadAllAlt} from "../../ApiRequest/ApiRequest";
-import {useParams} from "react-router-dom";
-import AuthorsComponent from "../../Component/Details/AuthorsComponent";
+import React, { useEffect, useState } from 'react';
+import {LoadAllAlt} from '../../ApiRequest/ApiRequest';
+import AuthorsComponent from '../../Component/Details/AuthorsComponent';
+import { useParams } from 'react-router-dom';
+import axios from "axios";
 
-const Authors = () => {
-    // hooks
+const AuthorsDetails = () => {
     const { authorId } = useParams();
-    console.log(authorId)
+    const [authors, setAuthors] = useState([]);
+    const [AuthorName, setAuthorName] = useState('');
 
-    let [authors, SetAuthors] = useState([]);
     useEffect(() => {
-        LoadAuthor(authorId);
-        console.log(authorId)
-    }, []);
-
-    const LoadAuthor = (authorId) => {
-        isLoading(true);
         LoadAllAlt(`/authors/${authorId}`)
             .then((data) => {
-                SetAuthors(data);
-                isLoading(false);
+                setAuthors(data);
+                setAuthorName(data.authorName);
                 console.log(data);
+                console.log(data.authorName);
+                const requestData = { authorName: data.authorName };
+                console.log("req data= "+ JSON.stringify(requestData))
+                ReadAuthorsDetails(requestData);
             })
             .catch((error) => {
                 console.log(error);
             });
+    }, [authorId]);
+
+    const ReadAuthorsDetails = (requestData) => {
+        let URL = `https://boi-ghor.onrender.com/api/v1/book-by-author`;
+        return axios
+            .get(URL, requestData) // Send requestData in the HTTP request body
+            .then((res) => {
+                if (res.status === 200) {
+                    console.log(res.data);
+                    return res.data;
+                } else {
+                    return false;
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+                return false;
+            });
     };
+
     return (
         <div>
-            {authors.map((author, i) => {
-                return (
-            <AuthorsComponent author={author} key={i}/>
-                )
-            })}
+            <AuthorsComponent  author={authors}/>;
+
         </div>
     );
 };
 
-export default Authors;
+export default AuthorsDetails;
