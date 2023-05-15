@@ -29,13 +29,13 @@ const LoginComponents = () => {
                });
                console.log(data);
 
-               if (data?.error) {
-                    toast.error(data.error)
+               if (data?.message) {
+                    toast.error(data.message)
 
-               }else {
+               }else if(data?.token) {
                     localStorage.setItem("auth", JSON.stringify(data));
                     setAuth({...auth, token: data.token, user: data.user});
-                    toast.success("login suces")
+                    toast.success("login success")
                     navigate(
                         location.state ||
                         `/`
