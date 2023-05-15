@@ -1,17 +1,15 @@
 import React from 'react';
 
-const Authors = () => {
-
+const AuthorsComponent = ({author}) => {
+    const { authorName, _id, photoURL,aboutAuthor} = author;
     return (
         <div className="container mx-auto py-10">
             <div className="flex flex-col md:flex-row md:items-center">
-                <img src="https://randomuser.me/api/portraits/men/20.jpg" alt="Author Image"
+                <img src={photoURL} alt="Author Image"
                      className="w-64 h-64 rounded-full object-cover border-4 border-white shadow-lg mb-10 md:mb-0 md:mr-10" />
                     <div className="flex flex-col">
-                        <h1 className="text-4xl font-bold text-gray-800 mb-5">authorName</h1>
-                        <p className="text-xl text-gray-600 mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Sed euismod euismod nisi vel bibendum. Nullam vitae velit vel velit lacinia
-                            bibendum.</p>
+                        <h1 className="text-4xl font-bold text-gray-800 mb-5">{authorName}</h1>
+                        <p className="text-xl text-gray-600 mb-5">{aboutAuthor}</p>
                         <a href="#" className="btn btn-primary">Follow</a>
                     </div>
             </div>
@@ -33,4 +31,4 @@ const Authors = () => {
     );
 };
 
-export default Authors;
+export default AuthorsComponent;
