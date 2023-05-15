@@ -20,6 +20,7 @@ import AuthorsPage from "./Pages/NavbarPages/AuthorsPage";
 import PublishersPage from "./Pages/NavbarPages/PublishersPage";
 import BookPage from "./Pages/BookPage/BookPage";
 import FullScreenLoader from "./Component/Common/FullScreenLoader";
+import AuthorsDetails from "./Pages/Details/AuthorsDetails";
 
 const App = () => {
   return (
@@ -40,6 +41,7 @@ const App = () => {
 
         {/*Navbar related pages routing*/}
         <Route path={"/authors"} element={<AuthorsPage />}></Route>
+          <Route path={"/authors/:authorId"} element={<AuthorsDetails />}></Route>
         <Route path={"/publishers"} element={<PublishersPage />}></Route>
 
         {/*Footers routing*/}

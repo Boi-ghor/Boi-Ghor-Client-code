@@ -15,10 +15,10 @@ const AuthorsPage = (props) => {
   if (authors.length > 0) {
     return (
       <div className="px-6 py-8">
-        <div className="glow-border glowing-border border-4 px-6 py-8 mx-auto max-w-7xl">
+        <div className="border-4 px-6 py-8 mx-auto max-w-7xl">
           <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-primary">Meet Our Authors</h1>
-            <p className="mt-2 text-primary">
+            <h1 className="text-3xl font-semibold mb-4">Meet Our Authors</h1>
+            <p className="text-lg">
               Unveiling the minds behind the words - Meet Our Authors. An opportunity to
               connect with your favorite writers and discover new ones
             </p>
