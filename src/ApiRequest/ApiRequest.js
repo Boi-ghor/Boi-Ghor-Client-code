@@ -12,10 +12,10 @@ const BaseURL = "https://boi-ghor.onrender.com/api/v1";
 //   }
 // };
 
-export const LoadAll = async (endpoint) => {
-  let url = `https://boi-ghor.onrender.com/api/v1${endpoint}`;
+export const LoadAll = async (endpoint, payload) => {
+  let url = `${endpoint}`;
 
-  const res = await axios.get(url);
+  const res = await axios.get(url, payload);
   if (res.status === 200) {
     return res.data;
   } else {
@@ -24,7 +24,7 @@ export const LoadAll = async (endpoint) => {
 };
 
 export const LoadAllAlt = async (endpoint) => {
-  let url = `https://boi-ghor.onrender.com/api/v1${endpoint}`;
+  let url = `${endpoint}`;
 
   const res = await axios.get(url);
   if (res.status === 200) {

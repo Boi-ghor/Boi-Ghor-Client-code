@@ -1,16 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import Authors from "../../Component/NavbarPages/Authors";
 import { LoadAllAlt } from "../../ApiRequest/ApiRequest";
-import FullScreenLoader from "../../Component/Common/FullScreenLoader";
+import { LoaderContext } from "../../context/loader";
 
 const AuthorsPage = (props) => {
-  let [authors, SetAuthors] = useState([]);
+  let [authors, setAuthors] = useState([]);
+
+  // Context
+  const { isLoading } = useContext(LoaderContext);
+
   useEffect(() => {
-    LoadAllAlt("/authors").then((Result) => {
-      SetAuthors(Result);
-    });
+    loadAuthors();
   }, []);
+
+  const loadAuthors = () => {
+    isLoading(true);
+    LoadAllAlt("/authors")
+      .then((data) => {
+        setAuthors(data);
+        isLoading(false);
+      })
+      .catch((error) => {
+        isLoading(false);
+        console.error(error);
+      });
+  };
 
   if (authors.length > 0) {
     return (
@@ -38,7 +53,7 @@ const AuthorsPage = (props) => {
   } else {
     return (
       <div>
-        <FullScreenLoader />
+        <h1>No data found</h1>
       </div>
     );
   }

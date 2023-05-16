@@ -27,6 +27,7 @@ const NewBooks = () => {
         isLoading(false);
       })
       .catch((error) => {
+        isLoading(false);
         console.error(error);
       });
   };
