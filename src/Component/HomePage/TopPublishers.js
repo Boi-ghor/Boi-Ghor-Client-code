@@ -115,7 +115,7 @@ const TopPublishers = () => {
   return (
     <section className="AuthorsSection mb-24">
       <div className="container mx-auto px-3">
-        <div className="text-center w-1/2 mx-auto mb-12">
+        <div className="text-center lg:w-2/3 xl:w-1/2 mx-auto mb-12">
           <h1 className="text-3xl font-semibold mb-4">Top Publishers</h1>
           <p className="text-lg">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem possimus autem
@@ -132,10 +132,10 @@ const TopPublishers = () => {
             1024: {
               slidesPerView: 4,
             },
-            640: {
+            768: {
               slidesPerView: 3,
             },
-            350: {
+            450: {
               slidesPerView: 2,
               spaceBetween: 10,
             },
