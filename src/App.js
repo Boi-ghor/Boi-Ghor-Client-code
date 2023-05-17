@@ -24,6 +24,7 @@ import FullScreenLoader from "./Component/Common/FullScreenLoader";
 import BookDetailsPage from "./Pages/BookDetailsPage/BookDetailsPage";
 
 import AuthorsDetails from "./Pages/Details/AuthorsDetails";
+import OrderPage from "./Pages/OrderPage/OrderPage";
 
 
 const App = () => {
@@ -48,6 +49,8 @@ const App = () => {
         <Route path={"/authors"} element={<AuthorsPage />}></Route>
           <Route path={"/authors/:authorId"} element={<AuthorsDetails />}></Route>
         <Route path={"/publishers"} element={<PublishersPage />}></Route>
+
+          <Route path={"/order"} element={<OrderPage />}></Route>
 
         {/*Footers routing*/}
         <Route path={"/about"} element={<AboutPage />}></Route>
