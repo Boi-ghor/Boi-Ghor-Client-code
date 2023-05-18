@@ -32,19 +32,26 @@ const LoginComponents = () => {
       });
       console.log(data);
 
-      if (data?.error) {
-        toast.error(data.error);
-      } else {
-        localStorage.setItem("auth", JSON.stringify(data));
-        setAuth({ ...auth, token: data.token, user: data.user });
-        toast.success("login suces");
-        navigate(location.state || `/`);
-      }
-    } catch (err) {
-      console.log(err);
-      toast.error("Login failed. Try again.");
-    }
-  };
+
+
+
+               if (data?.message) {
+                    toast.error(data.message)
+
+               }else if(data?.token) {
+                    localStorage.setItem("auth", JSON.stringify(data));
+                    setAuth({...auth, token: data.token, user: data.user});
+                    toast.success("login success")
+                    navigate(
+                        location.state ||
+                        `/`
+                    );
+               }
+          }
+          catch (err) {
+               console.log(err);
+               toast.error("Login failed. Try again.");
+          }}
 
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
@@ -63,6 +70,7 @@ const LoginComponents = () => {
                       <div className="flex flex-col ">
                         <h1
                           className="text-2xl my-[5px]
+>>>>>>> 4687728c5c1c0147332459a2e70b22d438207c87
 
                                                   font-bold "
                         >

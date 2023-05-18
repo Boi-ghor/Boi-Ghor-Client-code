@@ -28,7 +28,13 @@ import AuthorsDetails from "./Pages/Details/AuthorsDetails";
 import Profiles from "./Pages/Auth/Profiles";
 
 import OrderPage from "./Pages/OrderPage/OrderPage";
+
+import Cart from "./Pages/Cart";
+import Blogs from "./Pages/Blog/Blogs";
+import BlogDetails from "./Pages/BlogDetails";
+=======
 import PublishersDetails from "./Pages/Details/PublishersDetails";
+
 
 
 
@@ -49,6 +55,8 @@ const App = () => {
         <Route path={"/send-otp"} element={<SendotpComponents />}></Route>
         <Route path={"/verify-otp"} element={<OTPverify />}></Route>
         <Route path={"/change-pass"} element={<ChangepassComponents />}></Route>
+          <Route path={"/blogs"} element={<Blogs></Blogs>}></Route>
+          <Route path={"/blogs/:id"} element={<BlogDetails></BlogDetails>}></Route>
 
         {/*Navbar related pages routing*/}
         <Route path={"/authors"} element={<AuthorsPage />}></Route>
@@ -58,6 +66,7 @@ const App = () => {
         <Route path={"/profile"} element={<Profiles/>}></Route>
 
           <Route path={"/order"} element={<OrderPage />}></Route>
+          <Route path={"/cart"} element={<Cart></Cart>}></Route>
 
         {/*Footers routing*/}
         <Route path={"/about"} element={<AboutPage />}></Route>

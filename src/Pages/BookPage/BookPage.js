@@ -34,12 +34,13 @@ const BookPage = () => {
   }, []);
 
   const loadBooks = () => {
-    isLoading(true);
+    // isLoading(true);
     LoadAll("/books")
       .then((data) => {
+        isLoading(false);
         const sortedData = data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         setBooks(sortedData);
-        isLoading(false);
+
       })
       .catch((error) => {
         isLoading(false);

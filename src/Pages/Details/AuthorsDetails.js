@@ -6,30 +6,41 @@ import axios from "axios";
 
 const AuthorsDetails = () => {
     const { authorId } = useParams();
-    const [authors, setAuthors] = useState([]);
-    const [AuthorName, setAuthorName] = useState('');
+    const [authors, setAuthors] = useState({});
+  
 
     useEffect(() => {
         LoadAllAlt(`/authors/${authorId}`)
             .then((data) => {
                 setAuthors(data);
-                setAuthorName(data.authorName);
                 console.log(data);
                 console.log(data.authorName);
-                const requestData = { authorName: data.authorName };
-                console.log("req data= "+ JSON.stringify(requestData))
-                ReadAuthorsDetails(requestData);
+
+
             })
             .catch((error) => {
                 console.log(error);
             });
-    }, [authorId]);
+    }, []);
+   
 
-    const ReadAuthorsDetails = (requestData) => {
-        let URL = `https://boi-ghor.onrender.com/api/v1/book-by-author`;
+useEffect(()=>{
+    
+
+    ReadAuthorsDetails().then(data=>console.log(data))
+},[authors])
+
+    const ReadAuthorsDetails = () => {
+        const data={
+            authorName:authors?.authorName
+        }
+        console.log(data)
+        let URL = `/book-by-author`;
         return axios
-            .get(URL, requestData) // Send requestData in the HTTP request body
+            .get(URL, {authoName:"yousuf khan"}) // Send requestData in the HTTP request body
             .then((res) => {
+
+                console.log(res)
                 if (res.status === 200) {
                     console.log(res.data);
                     return res.data;

@@ -54,9 +54,10 @@ const BookDetailsPage = () => {
     isLoading(true);
     try {
       const { data } = await axios.get(`/books/${slug}`);
+      isLoading(false);
       if (data.length > 0) {
         setBook(data[0]);
-        isLoading(false);
+
       }
     } catch (error) {
       console.error("Error fetching book:", error);

@@ -18,7 +18,7 @@ const Menu = () => {
   const logout = () => {
     setAuth({ ...auth, user: null, token: "" });
     localStorage.removeItem("auth");
-    navigate("/signin");
+    navigate("/login");
   };
 
   const handleToggleSidebar = () => {
@@ -263,10 +263,14 @@ const Menu = () => {
                     <NavLink to="/settings">Settings</NavLink>
                   </li>
                   <li>
+
+
+
                     <NavLink to="/order">My Order</NavLink>
                   </li>
                   <li>
                     <NavLink onClick={logout} to="/">Logout</NavLink>
+
                   </li>
                 </ul>
               </div>
