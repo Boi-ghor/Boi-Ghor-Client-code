@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 
 const Publishers = ({ publishers }) => {
-    const { publisherName, photoURL, sellCount} = publishers;
+    const { publisherName, _id, photoURL, sellCount} = publishers;
 
 
     return (
@@ -20,7 +20,7 @@ const Publishers = ({ publishers }) => {
             <div className="mt-auto px-3 py-2 bg-red-100 w-full rounded border-red-200 shadow flex items-center justify-between">
                 <div className="font-medium">Books sold: {sellCount}&nbsp;</div>
                 <Link
-                    to={`/books-by-publisher/${publisherName}`}
+                    to={`/publisher/${_id}`}
                     className="btn btn-primary min-h-8 h-10 rounded capitalize"
                 >
                     View Details

@@ -25,6 +25,7 @@ import BookDetailsPage from "./Pages/BookDetailsPage/BookDetailsPage";
 
 import AuthorsDetails from "./Pages/Details/AuthorsDetails";
 import OrderPage from "./Pages/OrderPage/OrderPage";
+import PublishersDetails from "./Pages/Details/PublishersDetails";
 
 
 const App = () => {
@@ -47,7 +48,8 @@ const App = () => {
 
         {/*Navbar related pages routing*/}
         <Route path={"/authors"} element={<AuthorsPage />}></Route>
-          <Route path={"/authors/:authorId"} element={<AuthorsDetails />}></Route>
+          <Route path={"/author/:authorId"} element={<AuthorsDetails />}></Route>
+          <Route path={"/publisher/:publisherId"} element={<PublishersDetails/>}></Route>
         <Route path={"/publishers"} element={<PublishersPage />}></Route>
 
           <Route path={"/order"} element={<OrderPage />}></Route>
