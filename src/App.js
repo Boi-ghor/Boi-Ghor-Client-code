@@ -24,10 +24,18 @@ import FullScreenLoader from "./Component/Common/FullScreenLoader";
 import BookDetailsPage from "./Pages/BookDetailsPage/BookDetailsPage";
 
 import AuthorsDetails from "./Pages/Details/AuthorsDetails";
+
+import Profiles from "./Pages/Auth/Profiles";
+
 import OrderPage from "./Pages/OrderPage/OrderPage";
+
 import Cart from "./Pages/Cart";
 import Blogs from "./Pages/Blog/Blogs";
 import BlogDetails from "./Pages/BlogDetails";
+=======
+import PublishersDetails from "./Pages/Details/PublishersDetails";
+
+
 
 
 const App = () => {
@@ -52,8 +60,10 @@ const App = () => {
 
         {/*Navbar related pages routing*/}
         <Route path={"/authors"} element={<AuthorsPage />}></Route>
-          <Route path={"/authors/:authorId"} element={<AuthorsDetails />}></Route>
+          <Route path={"/author/:authorId"} element={<AuthorsDetails />}></Route>
+          <Route path={"/publisher/:publisherId"} element={<PublishersDetails/>}></Route>
         <Route path={"/publishers"} element={<PublishersPage />}></Route>
+        <Route path={"/profile"} element={<Profiles/>}></Route>
 
           <Route path={"/order"} element={<OrderPage />}></Route>
           <Route path={"/cart"} element={<Cart></Cart>}></Route>
@@ -65,7 +75,7 @@ const App = () => {
         <Route path={"/privacy-policy"} element={<Privacy />}></Route>
         <Route path={"*"} element={<ErrorPage></ErrorPage>}></Route>
       </Routes>
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
     </>
   );
 };

@@ -36,7 +36,6 @@ const {addToCart}=useCart();
           <h5 className="text-sm">
             <span className="text-gray-500 font-semibold">by </span>
 
-
             <Link to={`/author/${book?.author[0]?._id}`} className="capitalize">
               {book?.author[0]?.authorName}
             </Link>
