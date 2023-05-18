@@ -20,8 +20,17 @@ import AuthorsPage from "./Pages/NavbarPages/AuthorsPage";
 import PublishersPage from "./Pages/NavbarPages/PublishersPage";
 import BookPage from "./Pages/BookPage/BookPage";
 import FullScreenLoader from "./Component/Common/FullScreenLoader";
+
+import BookDetailsPage from "./Pages/BookDetailsPage/BookDetailsPage";
+
 import AuthorsDetails from "./Pages/Details/AuthorsDetails";
+
 import Profiles from "./Pages/Auth/Profiles";
+
+import OrderPage from "./Pages/OrderPage/OrderPage";
+import PublishersDetails from "./Pages/Details/PublishersDetails";
+
+
 
 const App = () => {
   return (
@@ -34,6 +43,7 @@ const App = () => {
       <Routes>
         <Route path={"/"} element={<HomePage></HomePage>}></Route>
         <Route path={"/books"} element={<BookPage />}></Route>
+        <Route path={"/book/:slug"} element={<BookDetailsPage />}></Route>
         <Route path={"/login"} element={<Login></Login>}></Route>
         <Route path={"/register"} element={<RegisterComponents />}></Route>
         <Route path={"/send-otp"} element={<SendotpComponents />}></Route>
@@ -42,9 +52,12 @@ const App = () => {
 
         {/*Navbar related pages routing*/}
         <Route path={"/authors"} element={<AuthorsPage />}></Route>
-          <Route path={"/authors/:authorId"} element={<AuthorsDetails />}></Route>
+          <Route path={"/author/:authorId"} element={<AuthorsDetails />}></Route>
+          <Route path={"/publisher/:publisherId"} element={<PublishersDetails/>}></Route>
         <Route path={"/publishers"} element={<PublishersPage />}></Route>
         <Route path={"/profile"} element={<Profiles/>}></Route>
+
+          <Route path={"/order"} element={<OrderPage />}></Route>
 
         {/*Footers routing*/}
         <Route path={"/about"} element={<AboutPage />}></Route>

@@ -24,7 +24,7 @@ const Authors = ({ author }) => {
                 <div className="font-medium">Books sold: {sellCount}&nbsp;</div>
 
                 <Link
-                    to={`/authors/${_id}`}
+                    to={`/author/${_id}`}
                     className="btn btn-primary min-h-8 h-10 rounded capitalize"
                 >
                     View Details
