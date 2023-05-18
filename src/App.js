@@ -21,6 +21,7 @@ import PublishersPage from "./Pages/NavbarPages/PublishersPage";
 import BookPage from "./Pages/BookPage/BookPage";
 import FullScreenLoader from "./Component/Common/FullScreenLoader";
 import AuthorsDetails from "./Pages/Details/AuthorsDetails";
+import Profiles from "./Pages/Auth/Profiles";
 
 const App = () => {
   return (
@@ -43,6 +44,7 @@ const App = () => {
         <Route path={"/authors"} element={<AuthorsPage />}></Route>
           <Route path={"/authors/:authorId"} element={<AuthorsDetails />}></Route>
         <Route path={"/publishers"} element={<PublishersPage />}></Route>
+        <Route path={"/profile"} element={<Profiles/>}></Route>
 
         {/*Footers routing*/}
         <Route path={"/about"} element={<AboutPage />}></Route>
@@ -51,7 +53,7 @@ const App = () => {
         <Route path={"/privacy-policy"} element={<Privacy />}></Route>
         <Route path={"*"} element={<ErrorPage></ErrorPage>}></Route>
       </Routes>
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
     </>
   );
 };

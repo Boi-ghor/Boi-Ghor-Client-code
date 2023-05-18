@@ -689,10 +689,6 @@ const RegisterComponents = () => {
                                    </div>
 
 
-
-
-
-
                               </div>
                          </div>
                     </div>

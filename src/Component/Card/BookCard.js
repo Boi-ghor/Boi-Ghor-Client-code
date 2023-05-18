@@ -17,7 +17,7 @@ const BookCard = ({ book }) => {
           <h4 className="font-semibold mb-2">{book?.bookName}</h4>
           <h5 className="text-sm">
             <span className="text-gray-500 font-semibold">by </span>
-            {book?.author[0].authorName}
+            {book?.author[0]?.authorName}
           </h5>
         </div>
         <div className="mt-auto px-3 py-2 bg-red-100 w-full rounded border-red-200 shadow">
