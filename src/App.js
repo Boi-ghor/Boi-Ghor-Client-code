@@ -20,7 +20,15 @@ import AuthorsPage from "./Pages/NavbarPages/AuthorsPage";
 import PublishersPage from "./Pages/NavbarPages/PublishersPage";
 import BookPage from "./Pages/BookPage/BookPage";
 import FullScreenLoader from "./Component/Common/FullScreenLoader";
+
+import BookDetailsPage from "./Pages/BookDetailsPage/BookDetailsPage";
+
 import AuthorsDetails from "./Pages/Details/AuthorsDetails";
+import OrderPage from "./Pages/OrderPage/OrderPage";
+import Cart from "./Pages/Cart";
+import Blogs from "./Pages/Blog/Blogs";
+import BlogDetails from "./Pages/BlogDetails";
+
 
 const App = () => {
   return (
@@ -33,16 +41,22 @@ const App = () => {
       <Routes>
         <Route path={"/"} element={<HomePage></HomePage>}></Route>
         <Route path={"/books"} element={<BookPage />}></Route>
+        <Route path={"/book/:slug"} element={<BookDetailsPage />}></Route>
         <Route path={"/login"} element={<Login></Login>}></Route>
         <Route path={"/register"} element={<RegisterComponents />}></Route>
         <Route path={"/send-otp"} element={<SendotpComponents />}></Route>
         <Route path={"/verify-otp"} element={<OTPverify />}></Route>
         <Route path={"/change-pass"} element={<ChangepassComponents />}></Route>
+          <Route path={"/blogs"} element={<Blogs></Blogs>}></Route>
+          <Route path={"/blogs/:id"} element={<BlogDetails></BlogDetails>}></Route>
 
         {/*Navbar related pages routing*/}
         <Route path={"/authors"} element={<AuthorsPage />}></Route>
           <Route path={"/authors/:authorId"} element={<AuthorsDetails />}></Route>
         <Route path={"/publishers"} element={<PublishersPage />}></Route>
+
+          <Route path={"/order"} element={<OrderPage />}></Route>
+          <Route path={"/cart"} element={<Cart></Cart>}></Route>
 
         {/*Footers routing*/}
         <Route path={"/about"} element={<AboutPage />}></Route>

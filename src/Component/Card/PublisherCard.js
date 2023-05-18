@@ -15,13 +15,13 @@ const PublisherCard = ({ author }) => {
           />
         </div>
 
-        <h4 className="font-semibold my-8">{name}</h4>
+        <h4 className="font-semibold mt-6 my-4 sm:my-8">{name}</h4>
 
-        <div className="mt-auto px-3 py-2 bg-red-100 w-full rounded border-red-200 shadow flex items-center justify-between">
-          <div className="font-medium">Books: {books.length}</div>
+        <div className="max-w-xs mx-auto mt-auto px-3 py-2 bg-red-100 w-full rounded border-red-200 shadow flex items-center justify-between">
+          <h5 className="font-medium">Books: {books.length}</h5>
           <Link
-            to={`/publisher/${id}`}
-            className="btn btn-primary min-h-8 h-10 rounded capitalize"
+            to={`/author/${id}`}
+            className="btn btn-primary btn-sm md:btn-md min-h-8 h-10 rounded capitalize"
           >
             View Details
           </Link>

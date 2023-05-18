@@ -263,7 +263,14 @@ const Menu = () => {
                     <NavLink to="/settings">Settings</NavLink>
                   </li>
                   <li>
-                    <NavLink onClick={logout} >Logout</NavLink>
+
+
+
+                    <NavLink to="/order">My Order</NavLink>
+                  </li>
+                  <li>
+                    <NavLink onClick={logout} to="/">Logout</NavLink>
+
                   </li>
                 </ul>
               </div>

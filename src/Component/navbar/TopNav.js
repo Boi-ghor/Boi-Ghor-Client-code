@@ -1,9 +1,12 @@
 import React from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import {useCart} from "../../context/useCart";
 
 const TopNav = () => {
+  const navigate=useNavigate()
+  const {cartItems}=useCart();
   return (
     <div className="TopNav py-2">
       <div className="container mx-auto px-2">
@@ -26,15 +29,15 @@ const TopNav = () => {
               />
             </Link>
           </div>
-          <div className="flex items-center gap-2">
+          <Link to={'/cart'} className="flex items-center gap-2">
             <AiOutlineShoppingCart className="text-primary" size={42} />
-            <div>
+            <div  className={'pointer-events-auto'}>
               <h4 className="uppercase text-xs sm:text-sm text-textColor font-semibold">
                 Shopping cart
               </h4>
-              <small className="text-textColorLight tracking-wider">item - 02</small>
+              <small className="text-textColorLight tracking-wider">item - {cartItems.length}</small>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
     </div>

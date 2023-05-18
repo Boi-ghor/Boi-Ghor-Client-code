@@ -14,28 +14,62 @@ import { LoaderContext } from "../../context/loader";
 
 const BookPage = () => {
   const [books, setBooks] = useState([]);
-  const [price, setPrice] = useState(500);
+  const [categories, setCategories] = useState([]);
   const [showFilterArea, setShowFilterArea] = useState(false);
   const [isListView, setIsListView] = useState(false);
+
+  // Filtering
+  const [checkedCategory, setCheckedCategory] = useState([]);
+  const [price, setPrice] = useState(500);
 
   // Context
   const { isLoading } = useContext(LoaderContext);
 
   useEffect(() => {
-    loadBooks();
+    loadCategories();
+  }, []);
+
+  useEffect(() => {
+    if (!checkedCategory.length) loadBooks();
   }, []);
 
   const loadBooks = () => {
-    isLoading(true);
+    // isLoading(true);
     LoadAll("/books")
       .then((data) => {
-        setBooks(data);
         isLoading(false);
-        console.log(data);
+        const sortedData = data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        setBooks(sortedData);
+
       })
       .catch((error) => {
+        isLoading(false);
         console.error(error);
       });
+  };
+
+  const loadCategories = () => {
+    isLoading(true);
+    LoadAll("/categories")
+      .then((data) => {
+        setCategories(data.category);
+        isLoading(false);
+      })
+      .catch((error) => {
+        isLoading(false);
+        console.error(error);
+      });
+  };
+
+  const handleCheckCategory = (value, id) => {
+    // console.log(value, id);
+    let all = [...checkedCategory];
+    if (value) {
+      all.push(id);
+    } else {
+      all = all.filter((c) => c !== id);
+    }
+    setCheckedCategory(all);
   };
 
   const handleListView = () => {
@@ -50,20 +84,16 @@ const BookPage = () => {
         (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
       );
       setBooks(sortedBooks);
-      console.log(sortedBooks);
     } else if (selected === "dateOldToNew") {
       const sortedBooks = [...books].sort(
         (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
       );
       setBooks(sortedBooks);
-      console.log(sortedBooks);
-    } else if (selected === "featured") {
-      const sortedBooks = [...books].sort((a, b) => b.isFeatured - a.isFeatured);
+    } else if (selected === "popular") {
+      const sortedBooks = [...books].sort((a, b) => b.isPopular - a.isPopular);
       setBooks(sortedBooks);
-      console.log(sortedBooks.map((item) => item.isFeatured));
     } else if (selected === "bestSelling") {
-      const sortedBooks = [...books].sort((a, b) => b.sold - a.sold);
-      setBooks(sortedBooks);
+      const sortedBooks = [...books].sort((a, b) => b.sellCount - a.sellCount);
     } else if (selected === "priceLowToHight") {
       const sortedBooks = [...books].sort((a, b) => a.price - b.price);
       setBooks(sortedBooks);
@@ -71,16 +101,17 @@ const BookPage = () => {
       const sortedBooks = [...books].sort((a, b) => b.price - a.price);
       setBooks(sortedBooks);
     } else if (selected === "alphabetically_A_Z") {
-      const sortedBooks = [...books].sort((a, b) => a.name.localeCompare(b.name));
+      const sortedBooks = [...books].sort((a, b) => a?.bookName.localeCompare(b?.bookName));
       setBooks(sortedBooks);
     } else if (selected === "alphabetically_Z_A") {
-      const sortedBooks = [...books].sort((a, b) => b.name.localeCompare(a.name));
+      const sortedBooks = [...books].sort((a, b) => b?.bookName.localeCompare(a?.bookName));
       setBooks(sortedBooks);
     }
   };
 
   return (
     <>
+      {/* <pre>{JSON.stringify({ checkedCategory }, null, 4)}</pre> */}
       <div
         className="h-80 relative before:absolute before:content-[''] before:w-full before:h-full before:bg-black before:bg-opacity-60  hidden items-center"
         style={{
@@ -160,9 +191,9 @@ const BookPage = () => {
                         type="radio"
                         name="sortBooksRadio"
                         className="radio radio-sm radio-primary"
-                        value="featured"
+                        value="popular"
                       />
-                      <span>Featured</span>
+                      <span>Popular</span>
                     </label>
                   </div>
                   <div className="form-control">
@@ -230,78 +261,22 @@ const BookPage = () => {
 
               <div>
                 <h3 className="font-semibold text-xl mb-2">Category</h3>
-                <div className="form-control">
-                  <label className="label justify-start gap-3 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="checkbox checkbox-sm checkbox-primary rounded-md"
-                    />
-                    <span>Category Name</span>
-                  </label>
-                </div>
-                <div className="form-control">
-                  <label className="label justify-start gap-3 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="checkbox checkbox-sm checkbox-primary rounded-md"
-                    />
-                    <span>Category Name</span>
-                  </label>
-                </div>
-                <div className="form-control">
-                  <label className="label justify-start gap-3 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="checkbox checkbox-sm checkbox-primary rounded-md"
-                    />
-                    <span>Category Name</span>
-                  </label>
-                </div>
-                <div className="form-control">
-                  <label className="label justify-start gap-3 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="checkbox checkbox-sm checkbox-primary rounded-md"
-                    />
-                    <span>Category Name</span>
-                  </label>
-                </div>
-                <div className="form-control">
-                  <label className="label justify-start gap-3 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="checkbox checkbox-sm checkbox-primary rounded-md"
-                    />
-                    <span>Category Name</span>
-                  </label>
-                </div>
-                <div className="form-control">
-                  <label className="label justify-start gap-3 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="checkbox checkbox-sm checkbox-primary rounded-md"
-                    />
-                    <span>Category Name</span>
-                  </label>
-                </div>
-                <div className="form-control">
-                  <label className="label justify-start gap-3 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="checkbox checkbox-sm checkbox-primary rounded-md"
-                    />
-                    <span>Category Name</span>
-                  </label>
-                </div>
-                <div className="form-control">
-                  <label className="label justify-start gap-3 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="checkbox checkbox-sm checkbox-primary rounded-md"
-                    />
-                    <span>Category Name</span>
-                  </label>
-                </div>
+                {categories.map((category) => {
+                  return (
+                    <div className="form-control" key={category?._id}>
+                      <label className="label justify-start gap-3 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          className="checkbox checkbox-sm checkbox-primary rounded-md"
+                          onChange={(e) =>
+                            handleCheckCategory(e.target.checked, category?._id)
+                          }
+                        />
+                        <span className="capitalize">{category?.name}</span>
+                      </label>
+                    </div>
+                  );
+                })}
               </div>
               <div>
                 <h3 className="font-semibold text-xl mb-2">Price</h3>

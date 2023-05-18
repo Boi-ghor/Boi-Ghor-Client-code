@@ -9,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import LoaderProvider from "./context/loader";
 import {AuthProvider} from "./context/useAuth";
+import {CartProvider} from "./context/useCart";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -16,10 +17,12 @@ root.render(
   <React.StrictMode>
       <AuthProvider>
     <LoaderProvider>
+        <CartProvider>
       <BrowserRouter>
         <ToastContainer />
         <App />
       </BrowserRouter>
+        </CartProvider>
     </LoaderProvider>
           </AuthProvider>
   </React.StrictMode>
