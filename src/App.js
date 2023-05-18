@@ -24,8 +24,12 @@ import FullScreenLoader from "./Component/Common/FullScreenLoader";
 import BookDetailsPage from "./Pages/BookDetailsPage/BookDetailsPage";
 
 import AuthorsDetails from "./Pages/Details/AuthorsDetails";
+
+import Profiles from "./Pages/Auth/Profiles";
+
 import OrderPage from "./Pages/OrderPage/OrderPage";
 import PublishersDetails from "./Pages/Details/PublishersDetails";
+
 
 
 const App = () => {
@@ -51,6 +55,7 @@ const App = () => {
           <Route path={"/author/:authorId"} element={<AuthorsDetails />}></Route>
           <Route path={"/publisher/:publisherId"} element={<PublishersDetails/>}></Route>
         <Route path={"/publishers"} element={<PublishersPage />}></Route>
+        <Route path={"/profile"} element={<Profiles/>}></Route>
 
           <Route path={"/order"} element={<OrderPage />}></Route>
 
@@ -61,7 +66,7 @@ const App = () => {
         <Route path={"/privacy-policy"} element={<Privacy />}></Route>
         <Route path={"*"} element={<ErrorPage></ErrorPage>}></Route>
       </Routes>
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
     </>
   );
 };

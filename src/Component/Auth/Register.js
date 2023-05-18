@@ -519,8 +519,10 @@ const RegisterComponents = () => {
                                                                                 text-white
                
                                                                                 py-2 px-4 rounded-full"
-                            type="submit"
-                          >
+
+                                                                      type='submit'
+                                                                 >
+                                                                
                             Register
                           </button>
                         </div>
@@ -548,6 +550,7 @@ const RegisterComponents = () => {
                           </div>
                         </div>
                       </form>
+
                     </div>
                   </div>
                 </div>

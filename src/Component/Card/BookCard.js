@@ -33,9 +33,11 @@ const BookCard = ({ book }) => {
           <h4 className="font-semibold capitalize mb-2">{book?.bookName}</h4>
           <h5 className="text-sm">
             <span className="text-gray-500 font-semibold">by </span>
+
             <Link to={`/author/${book?.author[0]?._id}`} className="capitalize">
               {book?.author[0]?.authorName}
             </Link>
+
           </h5>
         </div>
         <div className="mt-auto px-3 py-2 bg-red-100 w-full rounded border-red-200 shadow">
