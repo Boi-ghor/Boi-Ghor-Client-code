@@ -1,32 +1,11 @@
-import React, {useContext, useEffect, useState} from 'react';
-import {LoaderContext} from "../../context/loader";
-import {LoadAll} from "../../ApiRequest/ApiRequest";
-import BookCardAlt from "../Card/BookCardAlt";
+import React from 'react';
 import {BsFillFileEarmarkPersonFill} from "react-icons/bs";
+import BookCard from "../Card/BookCard";
 
-const AuthorsComponent = ({author}) => {
-    const [books, setBooks] = useState([]);
+const AuthorsComponent = ({author,books }) => {
 
-    // Context
-    const { isLoading } = useContext(LoaderContext);
-
-    useEffect(() => {
-        loadNewBooks();
-    }, []);
-
-    const loadNewBooks = () => {
-        isLoading(true);
-        LoadAll("/new-books")
-            .then((data) => {
-                setBooks(data);
-                isLoading(false);
-            })
-            .catch((error) => {
-                isLoading(false);
-                console.error(error);
-            });
-    };
     const { authorName, _id, photoURL,aboutAuthor} = author;
+
     return (
         <div className="container mx-auto">
 
@@ -60,12 +39,23 @@ const AuthorsComponent = ({author}) => {
             </section>
         <div className="p-6 bg-white shadow mt-6 rounded-lg">
             <h2 className="text-3xl font-bold text-gray-800 mt-10 mb-5">Books by {authorName}</h2>
+            {books.length > 0 && (
+                <div>
+                    <h1>Number of books: {books.length}</h1>
+                    <br />
+                </div>
+            )}
             <div className="grid gap-4 lg:grid-cols-4 md:grid-cols-3">
-                {books.map((book) => (
-                    <div key={book?._id}>
-                        <BookCardAlt book={book} />
-                    </div>
-                ))}
+
+                {books.length > 0 ? (
+                    books.map((book) => (
+                        <div key={book?._id}>
+                            <BookCard book={book} /> {/* Replace with your BookCard component */}
+                        </div>
+                    ))
+                ) : (
+                    <h1>Oops! We don't have book by {authorName} right now.</h1>
+                )}
             </div>
         </div>
 

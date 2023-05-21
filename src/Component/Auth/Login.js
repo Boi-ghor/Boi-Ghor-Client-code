@@ -69,10 +69,7 @@ const LoginComponents = () => {
                     <div className="flex flex-col items-center justify-center mt-5">
                       <div className="flex flex-col ">
                         <h1
-                          className="text-2xl my-[5px]
->>>>>>> 4687728c5c1c0147332459a2e70b22d438207c87
-
-                                                  font-bold "
+                          className="text-2xl my-[5px] font-bold "
                         >
                           {" "}
                           Sign in
@@ -107,7 +104,7 @@ const LoginComponents = () => {
 
                                                                  "
                                 value={email}
-                                onChange={(e) => setEmail(e.target.value)}
+                                onChange={(e) => setEmail(e.target.value.toLowerCase())}
                                 placeholder="Enter your email address "
                                 type="text"
                               />
