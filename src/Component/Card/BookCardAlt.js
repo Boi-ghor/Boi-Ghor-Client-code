@@ -7,7 +7,7 @@ const BookCardAlt = ({ book }) => {
     const navigate = useNavigate();
 
     return (
-        <div className="bookCard w-full h-full">
+        <div className="bookCard w-full h-full m-2">
             <div className="flex flex-col h-full">
                 <div className="flex justify-center">
                     <Link

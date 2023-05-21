@@ -74,7 +74,7 @@ const App = () => {
         <Route path={"/privacy-policy"} element={<Privacy />}></Route>
         <Route path={"*"} element={<ErrorPage></ErrorPage>}></Route>
       </Routes>
-      {/* <Footer></Footer> */}
+       {/*<Footer></Footer>*/}
     </>
   );
 };

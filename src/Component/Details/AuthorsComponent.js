@@ -30,15 +30,17 @@ const AuthorsComponent = ({author}) => {
     return (
         <div className="container mx-auto">
 
-            <section className="py-10">
+            <section className="">
                 <div className="grid gap-6 shadow-md">
                     <div className="col-span-8 xl:col-span-9 bg-white rounded-tl-lg rounded-bl-lg">
                         <div className="grid grid-cols-12">
                             <div className="col-span-5 xl:col-span-4 p-6">
-                                <div>
-                                    <img className="w-full object-cover" src={photoURL} alt={authorName} />
+                                <div className="flex justify-center items-center h-full">
+                                    <img className="w-2/4 object-cover" src={photoURL} alt={authorName} />
                                 </div>
                             </div>
+
+
                             <div className="col-span-7 xl:col-span-8 p-6 pl-0">
                                 <div>
                                     <h2 className="capitalize text-6xl mb-1 py-5">{authorName}</h2>
@@ -56,7 +58,7 @@ const AuthorsComponent = ({author}) => {
                     </div>
                 </div>
             </section>
-        <div className="p-6 py-7 bg-white shadow mt-16 rounded-lg">
+        <div className="p-6 bg-white shadow mt-6 rounded-lg">
             <h2 className="text-3xl font-bold text-gray-800 mt-10 mb-5">Books by {authorName}</h2>
             <div className="grid gap-4 lg:grid-cols-4 md:grid-cols-3">
                 {books.map((book) => (
