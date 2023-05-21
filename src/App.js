@@ -34,6 +34,7 @@ import Blogs from "./Pages/Blog/Blogs";
 import BlogDetails from "./Pages/BlogDetails";
 
 import PublishersDetails from "./Pages/Details/PublishersDetails";
+import PrivateRoute from "./Component/Route/PrivateRoute";
 
 
 
@@ -68,6 +69,10 @@ const App = () => {
           <Route path={"/order"} element={<OrderPage />}></Route>
           <Route path={"/cart"} element={<Cart></Cart>}></Route>
 
+        {/*private route*/}
+        <Route path={'/user'} element={<PrivateRoute></PrivateRoute>}>
+          <Route path={'place-order'} element={<p>orderoage</p>}></Route>
+        </Route>
         {/*Footers routing*/}
         <Route path={"/about"} element={<AboutPage />}></Route>
         <Route path={"/contact"} element={<ContactPage />}></Route>
@@ -75,7 +80,7 @@ const App = () => {
         <Route path={"/privacy-policy"} element={<Privacy />}></Route>
         <Route path={"*"} element={<ErrorPage></ErrorPage>}></Route>
       </Routes>
-      {/* <Footer></Footer> */}
+       <Footer></Footer>
     </>
   );
 };

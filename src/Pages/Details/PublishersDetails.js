@@ -40,7 +40,7 @@ const PublishersDetails = () => {
     // };
 
     return (
-        <div>
+        <div className="py-16 bg-[#f1f2f4]">
             <PublishersComponent publisher={publishers} />
         </div>
     );

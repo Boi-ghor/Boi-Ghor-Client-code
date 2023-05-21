@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {LoadAllAlt} from '../../ApiRequest/ApiRequest';
 import AuthorsComponent from '../../Component/Details/AuthorsComponent';
-import { useParams } from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import axios from "axios";
 
 const AuthorsDetails = () => {
-    const { authorId } = useParams();
+    const {authorId} = useParams();
     const [authors, setAuthors] = useState({});
-  
+
 
     useEffect(() => {
         LoadAllAlt(`/authors/${authorId}`)
@@ -22,22 +22,22 @@ const AuthorsDetails = () => {
                 console.log(error);
             });
     }, []);
-   
 
-useEffect(()=>{
-    
 
-    ReadAuthorsDetails().then(data=>console.log(data))
-},[authors])
+    useEffect(() => {
+
+
+        ReadAuthorsDetails().then(data => console.log(data))
+    }, [authors])
 
     const ReadAuthorsDetails = () => {
-        const data={
-            authorName:authors?.authorName
+        const data = {
+            authorName: authors?.authorName
         }
         console.log(data)
         let URL = `/book-by-author`;
         return axios
-            .get(URL, {authoName:"yousuf khan"}) // Send requestData in the HTTP request body
+            .get(URL, {authoName: "yousuf khan"}) // Send requestData in the HTTP request body
             .then((res) => {
 
                 console.log(res)
@@ -55,8 +55,8 @@ useEffect(()=>{
     };
 
     return (
-        <div>
-            <AuthorsComponent  author={authors}/>;
+        <div className="py-16 bg-[#f1f2f4]">
+            <AuthorsComponent author={authors}/>;
 
         </div>
     );
