@@ -1,33 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { LoaderContext } from '../../context/loader';
-import { LoadAll } from '../../ApiRequest/ApiRequest';
-import BookCardAlt from '../Card/BookCardAlt';
 import {BsRss} from "react-icons/bs";
+import BookCard from "../Card/BookCard";
 
-const PublishersComponent = ({ publisher }) => {
-    const [books, setBooks] = useState([]);
+const PublishersComponent = ({ publisher,books }) => {
 
-    // Context
-    const { isLoading } = useContext(LoaderContext);
-
-    useEffect(() => {
-        if (publisher !== null) {
-            loadNewBooks();
-        }
-    }, [publisher]);
-
-    const loadNewBooks = () => {
-        isLoading(true);
-        LoadAll("/new-books")
-            .then((data) => {
-                setBooks(data);
-                isLoading(false);
-            })
-            .catch((error) => {
-                isLoading(false);
-                console.error(error);
-            });
-    };
     if (publisher === null) {
         return null; // Return null if the publisher prop is null
     }
@@ -64,15 +40,27 @@ const PublishersComponent = ({ publisher }) => {
             </section>
 
             <div className="p-6 bg-white shadow mt-6 rounded-lg">
-            <h2 className="text-3xl font-bold text-gray-800 mt-10 mb-5">Books</h2>
-            <div className="grid gap-4 lg:grid-cols-4 md:grid-cols-3">
-                {books.map((book) => (
-                    <div key={book?._id}>
-                        <BookCardAlt book={book} />
+                <h2 className="text-3xl font-bold text-gray-800 mt-10 mb-5">Books by {publisherName}</h2>
+                {books.length > 0 && (
+                    <div>
+                        <h1>Number of books: {books.length}</h1>
+                        <br />
                     </div>
-                ))}
+                )}
+                <div className="grid gap-4 lg:grid-cols-4 md:grid-cols-3">
+
+                    {books.length > 0 ? (
+                        books.map((book) => (
+                            <div key={book?._id}>
+                                <BookCard book={book} /> {/* Replace with your BookCard component */}
+                            </div>
+                        ))
+                    ) : (
+                        <h1>Oops! We don't have book by {publisherName} right now.</h1>
+                    )}
+                </div>
             </div>
-        </div>
+
         </div>
     );
 };
