@@ -38,6 +38,7 @@ import PrivateRoute from "./Component/Route/PrivateRoute";
 import PlaceOrder from "./Pages/Place-Order/Place-Order";
 import MyOrder from "./Pages/MyOrder/MyOrder";
 import ViewOrder from "./Pages/ViewOrder/ViewOrder";
+import CheckOut from "./Pages/CheckOut/CheckOut";
 
 
 
@@ -77,6 +78,7 @@ const App = () => {
           <Route path={'place-order'} element={<PlaceOrder></PlaceOrder>}></Route>
           <Route path={'my-order'} element={<MyOrder></MyOrder>}></Route>
           <Route path={'my-order/:id'} element={<ViewOrder></ViewOrder>}></Route>
+          <Route path={'checkout/:id/:price'} element={<CheckOut></CheckOut>}></Route>
 
 
         </Route>

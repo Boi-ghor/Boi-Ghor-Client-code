@@ -13,7 +13,7 @@ const CheckOut = () => {
         instance:""
     });
     useEffect(()=>{
-        axios.get('/get-payment-token').then(response=>{
+        axios.get('/client-token').then(response=>{
 
             setValue({...value,clientToken: response.data.data.clientToken})
         })
@@ -23,11 +23,13 @@ const CheckOut = () => {
     const checkOut=()=> {
         instance.requestPaymentMethod()
             .then(data=>{
+                console.log(data);
                     let nonce=data.nonce;
                     axios.post(`/checkout/${id}`,{totalPrice:price,nonce:nonce})
                         .then(response => {
+
                             toast.success("payment successfully done");
-                            navigate("/dashboard/user")
+                            navigate(`/user/my-order/${id}`)
                         })
                         .catch(e=> toast.error("something wrong try again"))
 
@@ -36,7 +38,8 @@ const CheckOut = () => {
     }
     return (
         <div>
-            checkout page
+           <p className={'text-3xl text-center font-bold'}>Checkout Page</p>
+            <p className={'text-center'}> test card : 5555 5555 5555 4444</p>
 
             <div>
                 {clientToken ? <div className={'flex flex-col items-center '}> <DropIn
