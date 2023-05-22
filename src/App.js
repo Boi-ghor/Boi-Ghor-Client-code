@@ -35,6 +35,9 @@ import BlogDetails from "./Pages/BlogDetails";
 
 import PublishersDetails from "./Pages/Details/PublishersDetails";
 import PrivateRoute from "./Component/Route/PrivateRoute";
+import PlaceOrder from "./Pages/Place-Order/Place-Order";
+import MyOrder from "./Pages/MyOrder/MyOrder";
+import ViewOrder from "./Pages/ViewOrder/ViewOrder";
 
 
 
@@ -71,7 +74,11 @@ const App = () => {
 
         {/*private route*/}
         <Route path={'/user'} element={<PrivateRoute></PrivateRoute>}>
-          <Route path={'place-order'} element={<p>orderoage</p>}></Route>
+          <Route path={'place-order'} element={<PlaceOrder></PlaceOrder>}></Route>
+          <Route path={'my-order'} element={<MyOrder></MyOrder>}></Route>
+          <Route path={'my-order/:id'} element={<ViewOrder></ViewOrder>}></Route>
+
+
         </Route>
         {/*Footers routing*/}
         <Route path={"/about"} element={<AboutPage />}></Route>
@@ -80,7 +87,9 @@ const App = () => {
         <Route path={"/privacy-policy"} element={<Privacy />}></Route>
         <Route path={"*"} element={<ErrorPage></ErrorPage>}></Route>
       </Routes>
+
        <Footer></Footer>
+
     </>
   );
 };

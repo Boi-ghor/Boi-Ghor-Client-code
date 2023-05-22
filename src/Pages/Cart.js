@@ -86,7 +86,7 @@ const Cart = () => {
                     </tfoot>
 
                 </table>
-                <div> <Link to={'/dashboard/place-order'} className={'btn btn-primary'}>Place Order</Link> </div>
+                <div> <Link to={'/user/place-order'} className={'btn btn-primary'}>Place Order</Link> </div>
             </div>
         </div>
     );

@@ -55,7 +55,7 @@ const AuthorsDetails = () => {
     };
 
     return (
-        <div className="py-16 bg-[#f1f2f4]">
+        <div className="py-6 bg-[#f1f2f4]">
             <AuthorsComponent author={authors}/>;
 
         </div>
