@@ -20,7 +20,7 @@ const PopularBooks = () => {
   }, []);
 
   const loadPopularBooks = () => {
-    isLoading(true);
+    isLoading(false);
     LoadAll("/popular-books")
       .then((data) => {
         setBooks(data);

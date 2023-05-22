@@ -14,6 +14,7 @@ const AuthorsPage = (props) => {
         loadAuthors();
     }, []);
 
+
     const loadAuthors = () => {
         isLoading(true)
         LoadAllAlt("/authors")

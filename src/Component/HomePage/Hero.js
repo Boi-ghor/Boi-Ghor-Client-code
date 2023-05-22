@@ -11,6 +11,10 @@ import { MdOutlinePayment } from "react-icons/md";
 
 import { Autoplay, Pagination, Navigation } from "swiper";
 
+import banner1 from '../../Assets/img/book banner1.jpg';
+import banner2 from '../../Assets/img/book banner 3.jpg'
+import banner3 from '../../Assets/img/book banner 2.jpg'
+
 const Hero = () => {
   return (
     <div className="HeroSec">
@@ -29,110 +33,20 @@ const Hero = () => {
         modules={[Autoplay, Pagination, Navigation]}
       >
         <SwiperSlide>
-          <img src="https://source.unsplash.com/700x300/?computer,login" alt="Slide 2" />
-          <div className="absolute bottom-[170px] right-[65px] shopbtn">
-            <button
-              className="shop  
+          <img src={banner1} alt="banner 1" />
 
-
-                    bg-[#ff4157] 
-                    text-lg
-                    
-                    hover:bg-[#232323] duration-700 
-                    
-                    text-white
-                    
-                    py-4 px-8"
-              type="submit"
-            >
-              SHOP NOW
-            </button>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://source.unsplash.com/700x300/?computer,login" alt="Slide 2" />
-          <div className="absolute bottom-[170px] right-[65px] shopbtn">
-            <button
-              className="shop  
-
-
-                        bg-[#ff4157] 
-                        text-lg
-                        
-                        hover:bg-[#232323] duration-700 
-                        
-                        text-white
-                        
-                        py-4 px-8"
-              type="submit"
-            >
-              SHOP NOW
-            </button>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://source.unsplash.com/700x300/?computer,login" alt="Slide 2" />
-          <div className="absolute bottom-[170px] right-[65px] shopbtn">
-            <button
-              className="shop  
-
- bg-[#ff4157] 
- text-lg
- 
- hover:bg-[#232323] duration-700 
- 
- text-white
- 
- py-4 px-8"
-              type="submit"
-            >
-              SHOP NOW
-            </button>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://source.unsplash.com/700x300/?computer,login" alt="Slide 2" />
-          <div className="absolute bottom-[170px] right-[65px] shopbtn">
-            <button
-              className="shop  
-
-
-                      bg-[#ff4157] 
-                      text-lg
-                      
-                      hover:bg-[#232323] duration-700 
-                      
-                      text-white
-                      
-                      py-4 px-8"
-              type="submit"
-            >
-              SHOP NOW
-            </button>
-          </div>
         </SwiperSlide>
 
         <SwiperSlide>
-          <img src="https://source.unsplash.com/700x300/?computer,login" alt="Slide 2" />
-          <div className="absolute bottom-[170px] right-[65px] shopbtn">
-            <button
-              className="shop  
+          <img src={banner3} alt={'banner 2'} />
 
-
-                      bg-[#ff4157] 
-                      text-lg
-                      
-                      hover:bg-[#232323] duration-700 
-                      
-                      text-white
-                      
-                      py-4 px-8"
-              type="submit"
-            >
-              SHOP NOW
-            </button>
-          </div>
         </SwiperSlide>
+        <SwiperSlide>
+          <img src={banner1} alt="banner 3" />
+
+        </SwiperSlide>
+
+
       </Swiper>
 
       <div className="secdesk mx-[100px] mb-[30px]">

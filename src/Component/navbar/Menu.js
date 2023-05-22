@@ -266,7 +266,7 @@ const Menu = () => {
 
 
 
-                    <NavLink to="/order">My Order</NavLink>
+                    <NavLink to="/user/my-order">My Order</NavLink>
                   </li>
                   <li>
                     <NavLink onClick={logout} to="/">Logout</NavLink>

@@ -20,7 +20,7 @@ const NewBooks = () => {
   }, []);
 
   const loadNewBooks = () => {
-    isLoading(true);
+    isLoading(false);
     LoadAll("/new-books")
       .then((data) => {
         setBooks(data);
