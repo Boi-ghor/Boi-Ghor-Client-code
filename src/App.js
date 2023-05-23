@@ -39,6 +39,7 @@ import PlaceOrder from "./Pages/Place-Order/Place-Order";
 import MyOrder from "./Pages/MyOrder/MyOrder";
 import ViewOrder from "./Pages/ViewOrder/ViewOrder";
 import CheckOut from "./Pages/CheckOut/CheckOut";
+import SettingsPage from "./Pages/SettingsPage/SettingsPage";
 
 
 
@@ -69,7 +70,7 @@ const App = () => {
           <Route path={"/publisher/:publisherId"} element={<PublishersDetails/>}></Route>
         <Route path={"/publishers"} element={<PublishersPage />}></Route>
         <Route path={"/profile"} element={<Profiles/>}></Route>
-
+        <Route path={"/settings"} element={<SettingsPage/>}></Route>
           <Route path={"/order"} element={<OrderPage />}></Route>
           <Route path={"/cart"} element={<Cart></Cart>}></Route>
 
