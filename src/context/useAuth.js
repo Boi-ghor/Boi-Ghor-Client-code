@@ -10,7 +10,7 @@ const AuthProvider = ({ children }) => {
     });
 
     // axios config
-    axios.defaults.baseURL = "https://boi-ghor.onrender.com/api/v1";
+    axios.defaults.baseURL = "https://boi-ghor-server-code.vercel.app/api/v1";
     axios.defaults.headers.common["Authorization"] = auth?.token;
 
     useEffect(() => {

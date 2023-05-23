@@ -4,8 +4,8 @@ const Faq = () => {
   const [faqItems, setFaqItems] = useState([
     {
       id: 1,
-      question: 'Book BD! what is this?',
-      answer: 'This is a book shop',
+      question: 'Boi ghor! what is this?',
+      answer: 'This is a online book ecommerce website',
     },
     {
       id: 2,

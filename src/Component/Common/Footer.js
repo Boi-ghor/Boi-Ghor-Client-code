@@ -8,7 +8,7 @@ const Footer = () => {
       <div>
         <img className="ftbook" src={book}></img>
         <p className="font-bold">
-          Bookshop BD. <br />
+          Boi Ghor. <br />
           Selling you book since 2023
         </p>
         <p>Copyright © 2023 - All right reserved</p>
