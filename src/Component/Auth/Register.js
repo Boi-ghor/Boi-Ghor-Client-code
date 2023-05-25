@@ -10,6 +10,7 @@ import axios from "axios";
 
 const RegisterComponents = () => {
     const [showPassword, setShowPassword] = useState(false);
+    const [loading,setLoading]=useState(false);
 
     // hooks
     const [auth, setAuth] = useAuth();
@@ -43,6 +44,7 @@ const RegisterComponents = () => {
             toast.error("Passwords do not match");
         } else {
             try {
+                setLoading(true)
                 const {data} = await axios.post(
                     `https://boi-ghor.onrender.com/api/v1/signup`,
                     {
@@ -56,8 +58,10 @@ const RegisterComponents = () => {
 
                 if (data?.error) {
                     toast.error(data.error);
+                    setLoading(false)
                 } else {
                     try {
+                        toast.success("registration success")
                         const loginResponse = await axios.post(
                             `https://boi-ghor.onrender.com/api/v1/signin`,
                             {
@@ -70,6 +74,7 @@ const RegisterComponents = () => {
 
                         if (loginData?.error) {
                             toast.error(loginData.error);
+                            setLoading(false)
                         } else {
                             // User logged in successfully
 
@@ -79,7 +84,8 @@ const RegisterComponents = () => {
                             // Update the authentication state in your application
                             setAuth({ ...auth, token: loginData.token, user: loginData.user });
 
-                            toast.success("Login successful");
+                            toast.success("login successfully")
+                            setLoading(false)
 
                             // Redirect the user to the desired authenticated page
                             navigate(
@@ -90,11 +96,13 @@ const RegisterComponents = () => {
                     } catch (err) {
                         console.log(err);
                         toast.error("Login failed. Try again.");
+                        setLoading(false)
                     }
                 }
             } catch (err) {
                 console.log(err);
                 toast.error("Registration failed. Try again.");
+                setLoading(false)
             }
         }
     };
@@ -120,6 +128,7 @@ const RegisterComponents = () => {
 
                                 <div className="pc Secound absolute md:w-[500px] h-[600px]  overflow-hidden p-[20px]">
                                     <div className="flex flex-col card-body  mt-5">
+                                        {loading ? <h1>loading</h1> : ""}
                                         <div className="flex flex-col p-3 pc ">
                                             <h1
                                                 className="text-4xl my-[5px]
@@ -306,6 +315,7 @@ const RegisterComponents = () => {
                                                             <div
                                                                 className="absolute inset-y-0 right-0 flex items-center">
                                                                 <button
+
                                                                     type="button"
                                                                     onClick={toggleShowPassword}
                                                                     className="absolute right-0 top-1/2 transform -translate-y-1/2 mr-4 text-gray-500 focus:outline-none"
@@ -323,6 +333,7 @@ const RegisterComponents = () => {
 
                                                 <div className="flex flex-col items-center mt-[30px] ">
                                                     <button
+                                                        disabled={loading}
                                                         className="
                                                                       
      

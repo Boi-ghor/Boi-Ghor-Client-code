@@ -15,13 +15,14 @@ const MyOrder = () => {
                 console.log(res)
                 if(res.data.data.length >0){
                     setOrders(res.data.data)
+                    setLoading(false)
 
                 }else{
 
                 }
             })
             .catch(e => setLoading(false))
-    })
+    },[])
 
     return (
         <div className="overflow-x-auto ">
