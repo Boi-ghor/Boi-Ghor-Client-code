@@ -8,19 +8,21 @@ import { LoaderContext } from "../../context/loader";
 
 import "swiper/css";
 import "swiper/css/pagination";
+import InLoader from "../Common/InLoader";
 
 const NewBooks = () => {
   const [books, setBooks] = useState([]);
+  const [loading,isLoading]=useState(false)
 
   // Context
-  const { isLoading } = useContext(LoaderContext);
+ 
 
   useEffect(() => {
     loadNewBooks();
   }, []);
 
   const loadNewBooks = () => {
-    isLoading(false);
+    isLoading(true);
     LoadAll("/new-books")
       .then((data) => {
         setBooks(data);
@@ -43,43 +45,46 @@ const NewBooks = () => {
           </p>
         </div>
 
+       {
+        loading ? <InLoader></InLoader> : 
         <Swiper
-          dir="rtl"
-          breakpoints={{
-            1280: {
-              slidesPerView: 5,
-            },
-            1024: {
-              slidesPerView: 4,
-            },
-            640: {
-              slidesPerView: 3,
-            },
-            350: {
-              slidesPerView: 2,
-              spaceBetween: 10,
-            },
-          }}
-          spaceBetween={30}
-          pagination={{
-            clickable: true,
-          }}
-          loop={true}
-          autoplay={{
-            delay: 1000,
-            disableOnInteraction: false,
-          }}
-          modules={[Autoplay, Pagination]}
-          className="mySwiper pb-14"
-        >
-          {books.map((book) => {
-            return (
-              <SwiperSlide className="h-auto" key={book?._id}>
-                <BookCard book={book} />
-              </SwiperSlide>
-            );
-          })}
-        </Swiper>
+        dir="rtl"
+        breakpoints={{
+          1280: {
+            slidesPerView: 5,
+          },
+          1024: {
+            slidesPerView: 4,
+          },
+          640: {
+            slidesPerView: 3,
+          },
+          350: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+          },
+        }}
+        spaceBetween={30}
+        pagination={{
+          clickable: true,
+        }}
+        loop={true}
+        autoplay={{
+          delay: 1000,
+          disableOnInteraction: false,
+        }}
+        modules={[Autoplay, Pagination]}
+        className="mySwiper pb-14"
+      >
+        {books.map((book) => {
+          return (
+            <SwiperSlide className="h-auto" key={book?._id}>
+              <BookCard book={book} />
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
+       }
       </div>
     </section>
   );

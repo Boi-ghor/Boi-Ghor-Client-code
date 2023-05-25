@@ -13,15 +13,19 @@ const PrivateRoute = () => {
 
     useEffect(() => {
         if(auth?.token){
-            setOk(true)
-        }else{
-            setOk(false)
+            checkLogin().then(data=>{
+                if(data.login === true){
+                    setOk(true)
+                }else{
+                    setOk(false)
+                }
+            })
         }
 
 
     }, [auth?.token]);
     const checkLogin=async () =>{
-        const {data}= await axios.get('/check-login')
+        const {data}= await axios.get('/check-user')
         return data
     }
     return ok ? <Outlet/> : <Loading></Loading>;

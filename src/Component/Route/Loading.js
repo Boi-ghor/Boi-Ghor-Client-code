@@ -17,7 +17,7 @@ const Loading = ({ path = "login" }) => {
         }, 1000);
         // redirect once count is equal to 0
         count === 0 &&
-        navigate(`/${path}`, {
+        navigate(`/login`, {
             state: location.pathname,
         });
         // cleanup
