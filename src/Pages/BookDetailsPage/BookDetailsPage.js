@@ -12,8 +12,11 @@ import { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import BookCard from "../../Component/Card/BookCard";
+import ReviewCard from "../../Component/Card/ReviewCard";
+import { useAuth } from "../../context/useAuth";
 
 const BookDetailsPage = () => {
+  const [auth, setAuth] = useAuth();
   const { slug } = useParams();
 
   const [books, setBooks] = useState([]);
@@ -23,8 +26,17 @@ const BookDetailsPage = () => {
   // Context
   const { isLoading } = useContext(LoaderContext);
 
-  const { bookName, price, quantity, sellCount, description, author, publisher, category } =
-    book;
+  const {
+    _id,
+    bookName,
+    price,
+    quantity,
+    sellCount,
+    description,
+    author,
+    publisher,
+    category,
+  } = book;
 
   const itemsPerSlide = 4;
   const totalSlides = Math.ceil(books.length / itemsPerSlide);
@@ -57,7 +69,6 @@ const BookDetailsPage = () => {
       isLoading(false);
       if (data.length > 0) {
         setBook(data[0]);
-
       }
     } catch (error) {
       console.error("Error fetching book:", error);
@@ -69,7 +80,7 @@ const BookDetailsPage = () => {
     isLoading(true);
     try {
       const { data } = await axios.get(`/books`);
-      console.log(data);
+
       setBooks(data);
       isLoading(false);
     } catch (error) {
@@ -348,6 +359,12 @@ const BookDetailsPage = () => {
               </div>
             )}
           </div>
+        </div>
+
+        <div className="p-6 py-7 bg-white shadow mt-16 rounded-lg">
+          <h2 className="text-xl text-textColorLight  mb-5">Reviews</h2>
+          <ReviewCard bookId={_id} review={book?.review} />
+          {/* <pre>{JSON.stringify(book?.review)}</pre> */}
         </div>
       </div>
     </div>
